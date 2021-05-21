@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:25 by smun              #+#    #+#             */
-/*   Updated: 2021/04/11 01:57:22 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/21 11:36:23 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_bool				list_init(t_list *list, int length)
 **       - RealIndex = 0
 */
 
-static void			print(const char *prefix, t_list *list)
+void				print(const char *prefix, t_list *list)
 {
 	write(1, prefix, ft_strlen(prefix));
 	write(1, ": ", 2);
