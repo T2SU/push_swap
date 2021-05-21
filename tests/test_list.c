@@ -6,15 +6,11 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 14:30:08 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 14:58:22 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/21 15:09:56 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <assert.h>
-#include <stdlib.h>
-#include <signal.h>
-#include <string.h>
 #include "testlib.h"
 #include "common.h"
 

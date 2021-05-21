@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 14:15:19 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/21 15:32:16 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct	s_list
 */
 
 t_bool			list_init(t_list *list, int length);
+void			list_print(t_list *list);
 void			list_free(t_list *list);
 
 /*
@@ -65,12 +66,27 @@ t_bool			list_push_one(t_list *list, int value);
 */
 
 int				list_pop_one(t_list *list);
+
+/*
+**  ===========================================
+**      srcs/common/list/list_rotate.c
+**  ===========================================
+*/
+
 void			list_rotate(t_list *list);
 void			list_reverse_rotate(t_list *list);
-void			list_print(t_list *list);
+
+/*
+**  ===========================================
+**      srcs/common/utils/distinct.c
+**  ===========================================
+*/
+
+t_bool			is_all_distinct(t_list *list);
 
 int				circulate_int(int value, int point);
 int				ft_abs(int n);
+t_bool			ft_atoi_b(const char *str, int *pvalue);
 char			*ft_itoa(int n);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);

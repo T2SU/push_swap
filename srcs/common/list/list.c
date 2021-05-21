@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:25 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 13:55:45 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/21 15:01:06 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,8 @@ void		list_print(t_list *list)
 void		list_free(t_list *list)
 {
 	free(list->values);
+	list->values = NULL;
+	list->capacity = 0;
+	list->length = 0;
+	list->anchor = 0;
 }
