@@ -6,30 +6,36 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:57:30 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 11:03:05 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/21 14:20:08 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-static	int			get_real_index(t_list *list, int index)
+int			list_get_real_index(t_list *list, int index)
 {
-	int				trimmed_anchor;
-	int				trimmed_index;
-	int				sum;
+	int		trimmed;
 
-	trimmed_anchor = circulate_int(list->anchor, list->length);
-	trimmed_index = circulate_int(index, list->length);
-	sum = trimmed_anchor + trimmed_index;
-	return (circulate_int(sum, list->length));
+	trimmed = index;
+	if (list->length > 0)
+		trimmed %= list->length;
+	if (trimmed < 0)
+		trimmed += list->length;
+	return (trimmed);
 }
 
-int					list_get(t_list *list, int index)
+int			list_get(t_list *list, int index)
 {
-	return (list->values[get_real_index(list, index)]);
+	int		real_idx;
+
+	real_idx = list_get_real_index(list, index + list->anchor);
+	return (list->values[real_idx]);
 }
 
-void				list_set(t_list *list, int index, int value)
+void		list_set(t_list *list, int index, int value)
 {
-	list->values[get_real_index(list, index)] = value;
+	int		real_idx;
+
+	real_idx = list_get_real_index(list, index + list->anchor);
+	list->values[real_idx] = value;
 }

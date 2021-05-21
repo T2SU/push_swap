@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 12:27:22 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/21 14:15:19 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,39 @@ typedef struct	s_list
 	int			capacity;
 }				t_list;
 
+/*
+**  ===========================================
+**      srcs/common/list/list.c
+**  ===========================================
+*/
+
 t_bool			list_init(t_list *list, int length);
 void			list_free(t_list *list);
+
+/*
+**  ===========================================
+**      srcs/common/list/list_getset.c
+**  ===========================================
+*/
+
+int				list_get_real_index(t_list *list, int index);
 int				list_get(t_list *list, int index);
 void			list_set(t_list *list, int index, int value);
+
+/*
+**  ===========================================
+**      srcs/common/list/list_push.c
+**  ===========================================
+*/
+
 t_bool			list_push_one(t_list *list, int value);
+
+/*
+**  ===========================================
+**      srcs/common/list/list_pop.c
+**  ===========================================
+*/
+
 int				list_pop_one(t_list *list);
 void			list_rotate(t_list *list);
 void			list_reverse_rotate(t_list *list);
