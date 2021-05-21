@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:25 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 11:36:23 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/21 13:55:45 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,22 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-t_bool				list_init(t_list *list, int length)
+t_bool		list_init(t_list *list, int length)
 {
 	if (length > 0)
 	{
 		list->values = malloc(sizeof(int) * length);
 		if (!list->values)
 			return (FALSE);
+		list->capacity = length;
 	}
 	else
+	{
 		list->values = NULL;
+		list->capacity = 0;
+	}
 	list->anchor = 0;
 	list->length = 0;
-	list->capacity = 0;
 	return (TRUE);
 }
 
@@ -44,18 +47,18 @@ t_bool				list_init(t_list *list, int length)
 **       - RealIndex = 0
 */
 
-void				print(const char *prefix, t_list *list)
+void		print(const char *prefix, t_list *list)
 {
 	write(1, prefix, ft_strlen(prefix));
 	write(1, ": ", 2);
 	list_print(list);
 }
 
-void				list_print(t_list *list)
+void		list_print(t_list *list)
 {
-	int				i;
-	int				array_index;
-	char			*a;
+	int		i;
+	int		array_index;
+	char	*a;
 
 	i = 0;
 	while (i < list->length)
@@ -70,4 +73,9 @@ void				list_print(t_list *list)
 		i++;
 	}
 	write(1, "\n", 1);
+}
+
+void		list_free(t_list *list)
+{
+	free(list->values);
 }

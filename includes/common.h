@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 11:34:51 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/21 12:27:22 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct	s_list
 }				t_list;
 
 t_bool			list_init(t_list *list, int length);
+void			list_free(t_list *list);
 int				list_get(t_list *list, int index);
 void			list_set(t_list *list, int index, int value);
 t_bool			list_push_one(t_list *list, int value);
