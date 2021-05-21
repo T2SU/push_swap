@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 14:30:08 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 12:08:52 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/21 12:27:39 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void new_list(void)
 	list_init(&list, 0);
 	assert(list.capacity == 0);
 	assert(list.length == 0);
+	list_free(&list);
 }
 
 static void push_one(void)
@@ -47,6 +48,8 @@ static void push_one(void)
 	assert(list.values[0] == 354);
 	assert(list.values[1] == 256);
 	assert(list.values[2] == 122);
+	list_free(&list);
+
 }
 
 static void pop_one(void)
@@ -62,6 +65,28 @@ static void pop_one(void)
 	assert(101010 == list_pop_one(&list));
 	assert(4567 == list_pop_one(&list));
 	assert(1234 == list_pop_one(&list));
+	list_free(&list);
+}
+
+static void rotate(void)
+{
+	t_list	list;
+
+	list_init(&list, 0);
+	list_push_one(&list, 1234);
+	list_push_one(&list, 4567);
+	list_push_one(&list, 101010);
+	list_push_one(&list, 1256);
+	list_rotate(&list);
+	assert(101010 == list_get(&list, 0));
+	list_rotate(&list);
+	list_rotate(&list);
+	assert(1234 == list_get(&list, 0));
+	assert(1234 == list_pop_one(&list));
+	assert(1256 == list_get(&list, 0));
+	assert(4567 == list_get(&list, -1));
+	list_free(&list);
+
 }
 
 int main(int argc, char *argv[])
@@ -69,6 +94,7 @@ int main(int argc, char *argv[])
 	do_test(&new_list);
 	do_test(&push_one);
 	do_test(&pop_one);
+	do_test(&rotate);
 	print_test_result(argc, argv[0]);
 	return 0;
 }
