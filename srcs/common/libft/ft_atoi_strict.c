@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 15:16:26 by smun              #+#    #+#             */
-/*   Updated: 2021/05/28 17:50:46 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/28 20:26:36 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,33 @@ static size_t	chrcnt(const char *str, char ch)
 **   1.  2 or more '-'
 **   2.  too big or too small number ( < -2147483648  or  > 2147483647)
 **   3.  non digit or dash
+**   4.  only dash '-'
 */
 
 t_bool			ft_atoi_strict(const char *str, int *pvalue)
 {
-	size_t		len;
 	size_t		i;
 	t_bool		neg;
+	int			digit;
 	int			temp;
 
-	if (chrcnt(str, '-') >= 2)
+	if (chrcnt(str, '-') >= 2 || str[0] == '\0')
 		return (FALSE);
 	neg = str[0] == '-';
-	if (neg)
-		str++;
-	len = ft_strlen(str);
-	i = 0;
-	temp = 0;
-	while (i < len)
+	i = neg;
+	if (str[i] == '\0')
+		return (FALSE);
+	*pvalue = 0;
+	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
 			return (FALSE);
-		temp = (str[i++] - '0') + 10 * temp;
+		digit = (str[i++] - '0');
+		digit *= neg ? -1 : 1;
+		temp = 10 * *pvalue + digit;
+		if (temp != *pvalue && (temp < *pvalue) != neg)
+			return (FALSE);
+		*pvalue = temp;
 	}
-	*pvalue = temp;
 	return (TRUE);
 }

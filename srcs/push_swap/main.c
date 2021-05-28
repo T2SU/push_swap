@@ -2,11 +2,11 @@
 
 int	main(void)
 {
-	t_list		list_a;
-	t_list		list_b;
+	t_circularlist		list_a;
+	t_circularlist		list_b;
 
-	list_init(&list_a, 0);
-	list_init(&list_b, 0);
+	circularlist_init(&list_a, 0);
+	circularlist_init(&list_b, 0);
 
 	return (0);
 }

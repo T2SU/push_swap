@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:57:30 by smun              #+#    #+#             */
-/*   Updated: 2021/05/28 18:41:46 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/28 18:42:06 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int			circularlist_get_real_index(t_circularlist *list, int index)
 	if (trimmed < 0)
 		trimmed += list->length;
 	return (trimmed);
-}Í
+}
 
 int			circularlist_get(t_circularlist *list, int index)
 {

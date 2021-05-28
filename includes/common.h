@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/05/28 18:37:04 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/28 18:42:37 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,10 @@ void			circularlist_reverse_rotate(t_circularlist *list);
 
 t_bool			is_all_distinct(t_circularlist *list);
 
-int				circulate_int(int value, int point);
+/*
+** libft
+*/
+
 int				ft_abs(int n);
 t_bool			ft_atoi_strict(const char *str, int *pvalue);
 char			*ft_itoa(int n);

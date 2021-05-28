@@ -8,7 +8,6 @@ COMMON = \
 	circularlist/circularlist_push \
 	circularlist/circularlist_rotate \
 	circularlist/circularlist \
-	utils/circular \
 	utils/distinct \
 	libft/ft_abs \
 	libft/ft_atoi_strict \
