@@ -6,25 +6,11 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 15:16:26 by smun              #+#    #+#             */
-/*   Updated: 2021/05/28 20:26:36 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/28 20:39:17 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
-
-static size_t	chrcnt(const char *str, char ch)
-{
-	size_t		ret;
-
-	ret = 0;
-	while (*str)
-	{
-		if (*str == ch)
-			ret++;
-		str++;
-	}
-	return (ret);
-}
 
 /*
 ** Non parsable int?
@@ -41,11 +27,8 @@ t_bool			ft_atoi_strict(const char *str, int *pvalue)
 	int			digit;
 	int			temp;
 
-	if (chrcnt(str, '-') >= 2 || str[0] == '\0')
-		return (FALSE);
 	neg = str[0] == '-';
-	i = neg;
-	if (str[i] == '\0')
+	if (str[i = neg] == '\0')
 		return (FALSE);
 	*pvalue = 0;
 	while (str[i])
