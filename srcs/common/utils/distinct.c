@@ -6,13 +6,13 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 15:04:01 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 15:09:14 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/28 18:41:46 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-t_bool			is_all_distinct(t_list *list)
+t_bool			is_all_distinct(t_circularlist *list)
 {
 	int			i;
 	int			j;

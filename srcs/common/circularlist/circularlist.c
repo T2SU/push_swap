@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.c                                             :+:      :+:    :+:   */
+/*   circularlist.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:25 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 15:01:06 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/28 18:40:48 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-t_bool		list_init(t_list *list, int length)
+t_bool		circularlist_init(t_circularlist *list, int length)
 {
 	if (length > 0)
 	{
@@ -47,14 +47,14 @@ t_bool		list_init(t_list *list, int length)
 **       - RealIndex = 0
 */
 
-void		print(const char *prefix, t_list *list)
+void		print(const char *prefix, t_circularlist *list)
 {
 	write(1, prefix, ft_strlen(prefix));
 	write(1, ": ", 2);
-	list_print(list);
+	circularlist_print(list);
 }
 
-void		list_print(t_list *list)
+void		circularlist_print(t_circularlist *list)
 {
 	int		i;
 	int		array_index;
@@ -63,7 +63,7 @@ void		list_print(t_list *list)
 	i = 0;
 	while (i < list->length)
 	{
-		array_index = circulate_int(i + list->anchor, list->length);
+		array_index = circularlist_get_real_index(list, i + list->anchor);
 		a = ft_itoa(list->values[array_index]);
 		if (!a)
 			continue;
@@ -75,7 +75,7 @@ void		list_print(t_list *list)
 	write(1, "\n", 1);
 }
 
-void		list_free(t_list *list)
+void		circularlist_free(t_circularlist *list)
 {
 	free(list->values);
 	list->values = NULL;

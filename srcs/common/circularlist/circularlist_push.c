@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_push.c                                        :+:      :+:    :+:   */
+/*   circularlist_push.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:56:26 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 14:58:32 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/28 18:41:46 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 #include <stdlib.h>
 
-static t_bool	ensure_list_size(t_list *list, int size)
+static t_bool	ensure_list_size(t_circularlist *list, int size)
 {
 	int			*new_buffer;
 
@@ -34,13 +34,13 @@ static t_bool	ensure_list_size(t_list *list, int size)
 	return (TRUE);
 }
 
-t_bool			list_push_one(t_list *list, int value)
+t_bool			circularlist_push_one(t_circularlist *list, int value)
 {
 	int			idx;
 	int			*ptr;
 	int			move_size;
 
-	idx = list_get_real_index(list, list->anchor);
+	idx = circularlist_get_real_index(list, list->anchor);
 	if (!ensure_list_size(list, list->length + 1))
 		return (FALSE);
 	ptr = list->values;
