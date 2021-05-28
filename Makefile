@@ -3,9 +3,15 @@ CFLAGS = -g -Wall -Wextra -Werror
 
 COMMON_DIR = ./srcs/common/
 COMMON = \
-	list/list \
+	circularlist/circularlist_getset \
+	circularlist/circularlist_pop \
+	circularlist/circularlist_push \
+	circularlist/circularlist_rotate \
+	circularlist/circularlist \
 	utils/circular \
+	utils/distinct \
 	libft/ft_abs \
+	libft/ft_atoi_strict \
 	libft/ft_itoa \
 	libft/ft_memcpy \
 	libft/ft_memmove \

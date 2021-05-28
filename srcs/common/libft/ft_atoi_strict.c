@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_b.c                                        :+:      :+:    :+:   */
+/*   ft_atoi_strict.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 15:16:26 by smun              #+#    #+#             */
-/*   Updated: 2021/05/21 15:32:01 by smun             ###   ########.fr       */
+/*   Updated: 2021/05/28 17:50:46 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
-
-static t_bool	is_allowed_char(char ch)
-{
-	if (ch >= '0' && ch <= '9')
-		return (TRUE);
-	if (ch == '-')
-		return (TRUE);
-	return (FALSE);
-}
 
 static size_t	chrcnt(const char *str, char ch)
 {
@@ -42,12 +33,12 @@ static size_t	chrcnt(const char *str, char ch)
 **   3.  non digit or dash
 */
 
-t_bool			ft_atoi_b(const char *str, int *pvalue)
+t_bool			ft_atoi_strict(const char *str, int *pvalue)
 {
-	size_t	len;
-	size_t	i;
-	t_bool	neg;
-	int		temp;
+	size_t		len;
+	size_t		i;
+	t_bool		neg;
+	int			temp;
 
 	if (chrcnt(str, '-') >= 2)
 		return (FALSE);
