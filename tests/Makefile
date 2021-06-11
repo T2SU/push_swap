@@ -24,4 +24,4 @@ clean :
 	rm -rf $(LIBOBJ) $(TESTOBJ) $(TESTLIBOBJ)
 
 fclean : clean
-	rm -rf test
+	rm -rf *.out
