@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 14:30:08 by smun              #+#    #+#             */
-/*   Updated: 2021/05/28 18:41:46 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/12 02:31:44 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,36 @@ static void push_rotate_pop(void)
 	assert(list.length == 0);
 }
 
+static void clone(void)
+{
+	t_circularlist	li1;
+	t_circularlist	li2;
+
+	circularlist_init(&li1, 0);
+	circularlist_init(&li2, 5);
+	for (int i = 0; i < 100; i++)
+		circularlist_push_one(&li1, i);
+	for (int i = 0; i < 5; i++)
+		circularlist_push_one(&li2, -5);
+	assert(circularlist_clone(&li1, &li2));
+	for (int i = 0; i < 5; i++)
+		assert(li2.values[i] != -5);
+	for (int i = 0; i < 10; i++)
+		circularlist_reverse_rotate(&li1);
+	for (int i = 99; i >= 0; i--)
+	{
+		int a = circularlist_pop_one(&li1);
+		int b = (i + 10) % 100;
+		assert(a == b);
+	}
+	for (int i = 99; i >= 0; i--)
+	{
+		int a = circularlist_pop_one(&li2);
+		int b = i;
+		assert(a == b);
+	}
+}
+
 int main(int argc, char *argv[])
 {
 	do_test(&new_list);
@@ -202,6 +232,7 @@ int main(int argc, char *argv[])
 	do_test(&rotate);
 	do_test(&rotate_reverse);
 	do_test(&push_rotate_pop);
+	do_test(&clone);
 	print_test_result(argc, argv[0]);
 	return 0;
 }

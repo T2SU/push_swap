@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/05/28 18:42:37 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/12 02:07:36 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,14 @@ int				circularlist_pop_one(t_circularlist *list);
 
 void			circularlist_rotate(t_circularlist *list);
 void			circularlist_reverse_rotate(t_circularlist *list);
+
+/*
+**  ===========================================
+**      srcs/common/circularlist/circularlist.c
+**  ===========================================
+*/
+
+t_bool			circularlist_clone(t_circularlist *from, t_circularlist *to);
 
 /*
 **  ===========================================
