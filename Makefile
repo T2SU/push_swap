@@ -14,7 +14,7 @@ COMMON = \
 	libft/ft_itoa \
 	libft/ft_memcpy \
 	libft/ft_memmove \
-	libft/ft_string \
+	libft/ft_strlcpy \
 	libft/ft_bzero
 COMMON_SRC = $(addprefix $(COMMON_DIR), $(addsuffix .c, $(COMMON)))
 COMMON_OBJ = $(COMMON_SRC:.c=.o)
