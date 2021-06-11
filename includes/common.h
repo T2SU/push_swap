@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 02:41:35 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/12 03:28:26 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,19 @@
 # define COMMON_H
 
 # include <stddef.h>
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 enum			e_bool
 {
 	FALSE,
 	TRUE
+};
+
+enum			e_numberflag
+{
+	HAS_HIGHER = 1 << 0,
+	HAS_LOWER = 1 << 1
 };
 
 typedef int		t_bool;
@@ -33,7 +41,17 @@ typedef struct	s_list
 
 typedef struct	s_route
 {
+	int			distance_a;
+	int			distance_b;
 }				t_route;
+
+/*
+**  ===========================================
+**      srcs/common/route/route.c
+**  ===========================================
+*/
+
+t_route			calculate_route(t_list *list_a, t_list *list_b, int value);
 
 /*
 **  ===========================================

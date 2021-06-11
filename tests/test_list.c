@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 14:30:08 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 02:42:28 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/12 02:53:42 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,7 +207,7 @@ static void clone(void)
 		list_push_one(&li2, -5);
 	assert(list_clone(&li1, &li2));
 	for (int i = 0; i < 5; i++)
-		assert(li2.values[i] != -5);
+		assert(list_get(&li2, i) != -5);
 	for (int i = 0; i < 10; i++)
 		list_reverse_rotate(&li1);
 	for (int i = 99; i >= 0; i--)
