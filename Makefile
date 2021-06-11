@@ -3,11 +3,13 @@ CFLAGS = -g -Wall -Wextra -Werror
 
 COMMON_DIR = ./srcs/common/
 COMMON = \
-	circularlist/circularlist_getset \
-	circularlist/circularlist_pop \
-	circularlist/circularlist_push \
-	circularlist/circularlist_rotate \
-	circularlist/circularlist \
+	list/list_getset \
+	list/list_pop \
+	list/list_push \
+	list/list_rotate \
+	list/list_clone \
+	list/list \
+	route/route \
 	utils/distinct \
 	libft/ft_abs \
 	libft/ft_atoi_strict \

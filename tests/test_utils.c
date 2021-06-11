@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 15:09:34 by smun              #+#    #+#             */
-/*   Updated: 2021/06/11 23:22:42 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/12 02:40:40 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,59 +17,59 @@
 
 static void	test_distinct_true1(void)
 {
-	t_circularlist	list;
+	t_list	list;
 
-	circularlist_init(&list, 0);
+	list_init(&list, 0);
 	for (int i = 0; i < 100; i++)
-		circularlist_push_one(&list, i);
+		list_push_one(&list, i);
 	assert(is_all_distinct(&list) == TRUE);
 }
 
 static void	test_distinct_true2(void)
 {
-	t_circularlist	list;
+	t_list	list;
 
-	circularlist_init(&list, 0);
+	list_init(&list, 0);
 	for (int i = -50; i < 25; i++)
-		circularlist_push_one(&list, i);
+		list_push_one(&list, i);
 	assert(is_all_distinct(&list) == TRUE);
 }
 
 static void	test_distinct_false1(void)
 {
-	t_circularlist	list;
+	t_list	list;
 
-	circularlist_init(&list, 0);
+	list_init(&list, 0);
 	for (int i = 0; i <= 3; i++)
-		circularlist_push_one(&list, 5);
+		list_push_one(&list, 5);
 	assert(is_all_distinct(&list) == FALSE);
 }
 
 static void	test_distinct_false2(void)
 {
-	t_circularlist	list;
+	t_list	list;
 
-	circularlist_init(&list, 0);
-	circularlist_push_one(&list, 15);
-	circularlist_push_one(&list, 25);
-	circularlist_push_one(&list, 15);
-	circularlist_push_one(&list, 35);
-	circularlist_push_one(&list, 45);
-	circularlist_push_one(&list, 15);
+	list_init(&list, 0);
+	list_push_one(&list, 15);
+	list_push_one(&list, 25);
+	list_push_one(&list, 15);
+	list_push_one(&list, 35);
+	list_push_one(&list, 45);
+	list_push_one(&list, 15);
 	assert(is_all_distinct(&list) == FALSE);
 }
 
 static void	test_distinct_false3(void)
 {
-	t_circularlist	list;
+	t_list	list;
 
-	circularlist_init(&list, 0);
-	circularlist_push_one(&list, 15);
-	circularlist_push_one(&list, 25);
-	circularlist_push_one(&list, 5);
-	circularlist_push_one(&list, 35);
-	circularlist_push_one(&list, 45);
-	circularlist_push_one(&list, 15);
+	list_init(&list, 0);
+	list_push_one(&list, 15);
+	list_push_one(&list, 25);
+	list_push_one(&list, 5);
+	list_push_one(&list, 35);
+	list_push_one(&list, 45);
+	list_push_one(&list, 15);
 	assert(is_all_distinct(&list) == FALSE);
 }
 

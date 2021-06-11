@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   circularlist_rotate.c                              :+:      :+:    :+:   */
+/*   list_clone.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/11 01:55:34 by smun              #+#    #+#             */
-/*   Updated: 2021/05/28 18:41:46 by smun             ###   ########.fr       */
+/*   Created: 2021/06/12 02:06:59 by smun              #+#    #+#             */
+/*   Updated: 2021/06/12 02:40:26 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
+#include <stdlib.h>
 
-void	circularlist_rotate(t_circularlist *list)
+t_bool				list_clone(t_list *from, t_list *to)
 {
-	list->anchor++;
-}
+	const size_t	clone_size = from->capacity * sizeof(int);
 
-void	circularlist_reverse_rotate(t_circularlist *list)
-{
-	list->anchor--;
+	list_free(to);
+	to->values = malloc(clone_size);
+	if (!to->values)
+		return (FALSE);
+	ft_memcpy(to->values, from->values, clone_size);
+	to->anchor = from->anchor;
+	to->capacity = from->capacity;
+	to->length = from->length;
+	return (TRUE);
 }

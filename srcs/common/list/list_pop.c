@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   circularlist_pop.c                                 :+:      :+:    :+:   */
+/*   list_pop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:56:44 by smun              #+#    #+#             */
-/*   Updated: 2021/05/28 18:41:46 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/12 02:42:02 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-int					circularlist_pop_one(t_circularlist *list)
+int					list_pop_one(t_list *list)
 {
 	int				move_size;
 	int				idx;
@@ -21,7 +21,7 @@ int					circularlist_pop_one(t_circularlist *list)
 
 	if (list->length <= 0)
 		return (0);
-	idx = circularlist_get_real_index(list, list->anchor);
+	idx = list_get_real_index(list, list->anchor);
 	ptr = list->values;
 	value = ptr[idx];
 	move_size = list->length - idx;

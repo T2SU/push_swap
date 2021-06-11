@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 02:07:36 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/12 02:41:35 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,60 +29,64 @@ typedef struct	s_list
 	int			anchor;
 	int			length;
 	int			capacity;
-}				t_circularlist;
+}				t_list;
+
+typedef struct	s_route
+{
+}				t_route;
 
 /*
 **  ===========================================
-**      srcs/common/circularlist/circularlist.c
+**      srcs/common/list/list.c
 **  ===========================================
 */
 
-t_bool			circularlist_init(t_circularlist *list, int length);
-void			circularlist_print(t_circularlist *list);
-void			circularlist_free(t_circularlist *list);
+t_bool			list_init(t_list *list, int length);
+void			list_print(t_list *list);
+void			list_free(t_list *list);
 
 /*
 **  ===========================================
-**      srcs/common/circularlist/circularlist_getset.c
+**      srcs/common/list/list_getset.c
 **  ===========================================
 */
 
-int				circularlist_get_real_index(t_circularlist *list, int index);
-int				circularlist_get(t_circularlist *list, int index);
-void			circularlist_set(t_circularlist *list, int index, int value);
+int				list_get_real_index(t_list *list, int index);
+int				list_get(t_list *list, int index);
+void			list_set(t_list *list, int index, int value);
 
 /*
 **  ===========================================
-**      srcs/common/circularlist/circularlist_push.c
+**      srcs/common/list/list_push.c
 **  ===========================================
 */
 
-t_bool			circularlist_push_one(t_circularlist *list, int value);
+t_bool			list_push_one(t_list *list, int value);
 
 /*
 **  ===========================================
-**      srcs/common/circularlist/circularlist_pop.c
+**      srcs/common/list/list_pop.c
 **  ===========================================
 */
 
-int				circularlist_pop_one(t_circularlist *list);
+int				list_pop_one(t_list *list);
 
 /*
 **  ===========================================
-**      srcs/common/circularlist/circularlist_rotate.c
+**      srcs/common/list/list_rotate.c
 **  ===========================================
 */
 
-void			circularlist_rotate(t_circularlist *list);
-void			circularlist_reverse_rotate(t_circularlist *list);
+void			list_rotate(t_list *list);
+void			list_reverse_rotate(t_list *list);
 
 /*
 **  ===========================================
-**      srcs/common/circularlist/circularlist.c
+**      srcs/common/list/list_clone.c
 **  ===========================================
 */
 
-t_bool			circularlist_clone(t_circularlist *from, t_circularlist *to);
+t_bool			list_clone(t_list *from, t_list *to);
 
 /*
 **  ===========================================
@@ -90,7 +94,7 @@ t_bool			circularlist_clone(t_circularlist *from, t_circularlist *to);
 **  ===========================================
 */
 
-t_bool			is_all_distinct(t_circularlist *list);
+t_bool			is_all_distinct(t_list *list);
 
 /*
 ** libft
