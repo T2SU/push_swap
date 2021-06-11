@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 15:09:34 by smun              #+#    #+#             */
-/*   Updated: 2021/06/11 23:19:24 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/11 23:21:23 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ static void test_atoi_strict(void)
 	assert(ft_atoi_strict("00000002147483647", &value) && value == 2147483647);
 	assert(ft_atoi_strict("-00000000002147483648", &value) && value == -2147483648);
 	assert(ft_atoi_strict("00000015001234", &value) && value == 15001234);
+	assert(ft_atoi_strict("-0", &value) && value == 0);
 	assert(ft_atoi_strict("-000912928345", &value) && value == -912928345);
 	assert(ft_atoi_strict("-000929283456", &value) && value == -929283456);
 }
