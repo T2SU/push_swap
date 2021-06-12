@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 03:28:26 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/12 21:39:51 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct	s_route
 {
 	int			distance_a;
 	int			distance_b;
+	int			total_cost;
 }				t_route;
 
 /*
@@ -120,7 +121,9 @@ t_bool			is_all_distinct(t_list *list);
 
 int				ft_abs(int n);
 t_bool			ft_atoi_strict(const char *str, int *pvalue);
+t_bool			ft_isneg(int i);
 char			*ft_itoa(int n);
+int				ft_max(int a, int b);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			ft_bzero(void *s, size_t n);

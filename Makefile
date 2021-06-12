@@ -13,7 +13,9 @@ COMMON = \
 	utils/distinct \
 	libft/ft_abs \
 	libft/ft_atoi_strict \
+	libft/ft_isneg \
 	libft/ft_itoa \
+	libft/ft_max \
 	libft/ft_memcpy \
 	libft/ft_memmove \
 	libft/ft_strlcpy \
