@@ -11,6 +11,7 @@ COMMON = \
 	list/list \
 	route/route \
 	utils/distinct \
+	utils/error \
 	libft/ft_abs \
 	libft/ft_atoi_strict \
 	libft/ft_isneg \

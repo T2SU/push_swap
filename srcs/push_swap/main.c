@@ -6,18 +6,40 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 20:35:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 02:40:19 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 01:47:11 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-int	main(void)
+static void		parse_into_list(t_list *list, int argc, char *argv[])
+{
+	const int	start_index = 1;
+	int			i;
+	int			num;
+
+	i = start_index;
+	if (argc <= start_index)
+		raise_error("lacked arguments.");
+	while (i < argc)
+	{
+		if (!ft_atoi_strict(argv[i], &num))
+			raise_error("some arguments are not integer or unparsable.");
+		list_push_one(list, num);
+	}
+}
+
+int				main(int argc, char *argv[])
 {
 	t_list		list_a;
 	t_list		list_b;
 
-	list_init(&list_a, 0);
-	list_init(&list_b, 0);
+	if (!list_init(&list_a, 0))
+		raise_error("failed to initialize the stack A");
+	if (!list_init(&list_b, 0))
+		raise_error("failed to initialize the stack B");
+	parse_into_list(&list_a, argc, argv);
+	if (!is_all_distinct(&list_a))
+		raise_error("there are duplicates.");
 	return (0);
 }

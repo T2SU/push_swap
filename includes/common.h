@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 21:39:51 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 01:34:02 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,14 @@ t_bool			list_clone(t_list *from, t_list *to);
 */
 
 t_bool			is_all_distinct(t_list *list);
+
+/*
+**  ===========================================
+**      srcs/common/utils/error.c
+**  ===========================================
+*/
+
+void			raise_error(const char *des);
 
 /*
 ** libft
