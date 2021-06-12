@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 01:34:02 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 02:22:06 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ enum			e_numberflag
 {
 	HAS_HIGHER = 1 << 0,
 	HAS_LOWER = 1 << 1
+};
+
+enum			e_positive
+{
+	POSITIVE,
+	NEGATIVE,
+	ZERO
 };
 
 typedef int		t_bool;
@@ -53,6 +60,8 @@ typedef struct	s_route
 */
 
 t_route			calculate_route(t_list *list_a, t_list *list_b, int value);
+void			apply_route(t_route route);
+void			apply_distance_to_list(t_list *list, int distance);
 
 /*
 **  ===========================================

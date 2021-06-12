@@ -6,11 +6,11 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 20:35:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 01:47:11 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 02:01:51 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "common.h"
+#include "push_swap.h"
 
 static void		parse_into_list(t_list *list, int argc, char *argv[])
 {
@@ -41,5 +41,8 @@ int				main(int argc, char *argv[])
 	parse_into_list(&list_a, argc, argv);
 	if (!is_all_distinct(&list_a))
 		raise_error("there are duplicates.");
+	navigate(&list_a, &list_b);
+	list_free(&list_a);
+	list_free(&list_b);
 	return (0);
 }

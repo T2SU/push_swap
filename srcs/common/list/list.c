@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:25 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 02:42:04 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 01:49:45 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ t_bool		list_init(t_list *list, int length)
 
 void		print(const char *prefix, t_list *list)
 {
-	write(1, prefix, ft_strlen(prefix));
-	write(1, ": ", 2);
+	write(STDOUT_FILENO, prefix, ft_strlen(prefix));
+	write(STDOUT_FILENO, ": ", 2);
 	list_print(list);
 }
 
@@ -64,15 +64,17 @@ void		list_print(t_list *list)
 	while (i < list->length)
 	{
 		array_index = list_get_real_index(list, i + list->anchor);
-		a = ft_itoa(list->values[array_index]);
-		if (!a)
-			continue;
-		write(1, a, ft_strlen(a));
-		free(a);
-		write(1, " ", 1);
+		if ((a = ft_itoa(list->values[array_index])))
+		{
+			write(STDOUT_FILENO, a, ft_strlen(a));
+			free(a);
+		}
+		else
+			write(STDOUT_FILENO, "?", 1);
+		write(STDOUT_FILENO, " ", 1);
 		i++;
 	}
-	write(1, "\n", 1);
+	write(STDOUT_FILENO, "\n", 1);
 }
 
 void		list_free(t_list *list)
