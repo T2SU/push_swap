@@ -4,3 +4,5 @@ a.out
 .DS_Store
 *.out
 *.o
+checker
+push_swap
