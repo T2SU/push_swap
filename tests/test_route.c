@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 03:30:19 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 21:26:14 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/12 21:52:19 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "common.h"
 #include <stdio.h>
 
-static void	test_route(void)
+static void	test_calculate_route(void)
 {
 	t_list	list1;
 	t_list	list2;
@@ -59,7 +59,7 @@ static void	test_route(void)
 
 int			main(int argc, char *argv[])
 {
-	do_test(&test_route);
+	do_test(&test_calculate_route);
 	print_test_result(argc, argv[0]);
 	return 0;
 }

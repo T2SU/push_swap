@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:15:05 by smun              #+#    #+#             */
-/*   Updated: 2021/04/19 17:28:00 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/12 21:56:32 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static void		apply_result(int print, int status, const char *module_name)
 
 	if (print)
 	{
-		printf(RESET"[v] "YELLOW"%22s"RESET" RESULT\n", module_name);
-		printf(" - "CYAN"TOTAL:                 [%6d]\n", total);
-		printf(" - "GREEN"SUCCESS:               [%6d]\n", total - failed);
-		printf(" - "RED"FAILED:                [%6d]\n", failed);
+		printf(RESET"   "YELLOW"%-24s"RESET"RESULT\n", module_name);
+		printf("%-26s[%6d]\n", " - "CYAN"TOTAL:                 ", total);
+		printf("%-26s[%6d]\n", " - "GREEN"SUCCESS:               ", total - failed);
+		printf("%-26s[%6d]\n", " - "RED"FAILED:                ", failed);
 		printf(WHITE"-------------------------------------"RESET"\n");
 	}
 	else
