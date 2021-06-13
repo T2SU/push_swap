@@ -29,7 +29,8 @@ COMMON_OBJ = $(COMMON_SRC:.c=.o)
 PUSH_SWAP_DIR = ./srcs/push_swap/
 PUSH_SWAP = \
 	main \
-	navigator
+	navigator \
+	parser
 PUSH_SWAP_SRC = $(addprefix $(PUSH_SWAP_DIR), $(addsuffix .c, $(PUSH_SWAP)))
 PUSH_SWAP_OBJ = $(PUSH_SWAP_SRC:.c=.o)
 

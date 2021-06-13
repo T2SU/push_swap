@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 01:50:42 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 14:04:30 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 19:44:08 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,13 @@
 */
 
 t_bool		navigate(t_list *list_a, t_list *list_b);
+
+/*
+**  ===========================================
+**      srcs/push_swap/parser.c
+**  ===========================================
+*/
+
+void		parse_into_list(t_list *list, int argc, char *argv[]);
 
 #endif
