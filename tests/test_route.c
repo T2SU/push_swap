@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 03:30:19 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 19:00:34 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 19:20:11 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ static void	test_navigate_1(void)
 int			main(int argc, char *argv[])
 {
 	do_test(&test_calculate_route);
-	do_test_stdout(&test_navigate_1, "rrb\nrrb\nrra\nrb\nrrb\nrrb\nrrb\nrrb\nrrb\nrrb\n");
+	do_test_stdout(&test_navigate_1, "rrb\nrrb\npa\nrra\nrb\npa\nrrb\nrrb\nrrb\nrrb\npa\nrrb\nrrb\npa\n");
 	print_test_result(argc, argv[0]);
 	return 0;
 }

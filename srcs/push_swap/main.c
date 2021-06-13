@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 20:35:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 19:09:31 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 19:17:58 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int				main(int argc, char *argv[])
 	parse_into_list(&list_a, argc, argv);
 	if (!is_all_distinct(&list_a))
 		raise_error("there are duplicates.");
-	navigate(&list_a, &list_b);
+	while (navigate(&list_a, &list_b))
+		list_push(&list_a, &list_b, A_TO_B);
 	list_free(&list_a);
 	list_free(&list_b);
 	return (0);
