@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 03:30:19 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 19:48:27 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/14 02:15:16 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,31 @@ static void	test_navigate_1(void)
 	assert(list_get(&list2, 0) == 3);
 }
 
+static void	test_navigate_2(void)
+{
+	t_list	list1;
+	t_list	list2;
+	
+	list_init(&list1, 0);
+	list_init(&list2, 0);
+	list_push_one(&list1, 6);
+	list_push_one(&list2, 1);
+	list_push_one(&list2, 2);
+	list_push_one(&list2, 4);
+	list_push_one(&list2, 5);
+	list1.anchor = 1;
+	list2.anchor = 5;
+	navigate(&list1, &list2);
+	list_push(&list1, &list2, A_TO_B);
+	list_print(&list2);
+}
+
+
 int			main(int argc, char *argv[])
 {
 	do_test(&test_calculate_route);
 	do_test_stdout(&test_navigate_1, "rrb\nrrb\npa\nrra\nrb\npa\nrrb\nrrb\nrrb\nrrb\npa\nrrb\nrrb\npa\n");
+	do_test_stdout(&test_navigate_2, "rb\npa\n6 5 4 2 1 \n");
 	print_test_result(argc, argv[0]);
 	return 0;
 }

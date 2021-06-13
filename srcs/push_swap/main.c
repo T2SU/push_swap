@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 20:35:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 19:43:49 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 20:19:51 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int				main(int argc, char *argv[])
 		raise_error("there are duplicates.");
 	while (navigate(&list_a, &list_b))
 		list_push(&list_a, &list_b, A_TO_B);
+	//TODO: rotate stack b
 	while (list_b.length > 0)
 		list_push(&list_a, &list_b, B_TO_A);
 	list_free(&list_a);

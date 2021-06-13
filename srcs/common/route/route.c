@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 02:45:57 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 18:59:51 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/14 02:14:11 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static int		calculate_route_for_proper_index(t_list *list, int value)
 	if ((flag & kHasHigher) && (flag & kHasLower))
 		destination = get_highest_number(list, value);
 	else if ((flag & kHasHigher) || (flag & kHasLower))
-		destination = get_highest_number(list, INT_MIN);
+		destination = get_highest_number(list, INT_MAX);
 	else
 		return (0);
 	return (get_fastest_distance(list, destination));

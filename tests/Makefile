@@ -15,10 +15,14 @@ TESTOBJ = $(TESTSRCS:.c=.o)
 TESTLIBSRCS = testlib.c
 TESTLIBOBJ = $(TESTLIBSRCS:.c=.o)
 
-all : $(LIBOBJ) $(TESTOBJ) $(TESTLIBOBJ)
+all : compile
+	@for file in $(TESTOBJ) ; do \
+		./$${file%%.*}.out ; \
+	done
+
+compile : $(LIBOBJ) $(TESTOBJ) $(TESTLIBOBJ)
 	@for file in $(TESTOBJ) ; do \
 		$(CC) $(CFLAGS) -o $${file%%.*}.out $(LIBOBJ) $(TESTLIBOBJ) $${file%%.*}.o ; \
-		./$${file%%.*}.out ; \
 	done
 
 %.o : %.c
