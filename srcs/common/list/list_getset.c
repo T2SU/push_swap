@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:57:30 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 02:42:00 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/14 03:04:47 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,23 @@ void		list_set(t_list *list, int index, int value)
 
 	real_idx = list_get_real_index(list, index + list->anchor);
 	list->values[real_idx] = value;
+}
+
+int			list_get_highest_number(t_list *list, int basis)
+{
+	int		highest;
+	int		i;
+	int		num;
+
+	highest = INT_MIN;
+	i = 0;
+	while (i < list->length)
+	{
+		num = list_get(list, i++);
+		if (basis < num)
+			continue;
+		if (highest < num)
+			highest = num;
+	}
+	return (highest);
 }

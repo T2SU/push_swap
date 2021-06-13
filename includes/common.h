@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 19:08:58 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/14 03:08:25 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct	s_route
 */
 
 t_route			calculate_route(t_list *list_a, t_list *list_b, int value);
-void			apply_route(t_route route);
+void			print_instructions_by_route(t_route route);
 void			apply_distance_to_list(t_list *list, int distance);
 
 /*
@@ -70,6 +70,7 @@ void			apply_distance_to_list(t_list *list, int distance);
 t_bool			list_init(t_list *list, int length);
 void			list_print(t_list *list);
 void			list_free(t_list *list);
+int				list_get_fastest_distance(t_list *list, int value);
 
 /*
 **  ===========================================
@@ -80,6 +81,7 @@ void			list_free(t_list *list);
 int				list_get_real_index(t_list *list, int index);
 int				list_get(t_list *list, int index);
 void			list_set(t_list *list, int index, int value);
+int				list_get_highest_number(t_list *list, int basis);
 
 /*
 **  ===========================================
@@ -106,6 +108,7 @@ int				list_pop_one(t_list *list);
 
 void			list_rotate(t_list *list);
 void			list_reverse_rotate(t_list *list);
+void			list_rotate_order_by_desc(t_list *list);
 
 /*
 **  ===========================================

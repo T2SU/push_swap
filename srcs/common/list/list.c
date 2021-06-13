@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:25 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 19:12:40 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/14 03:02:57 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,24 @@ void		list_free(t_list *list)
 	list->capacity = 0;
 	list->length = 0;
 	list->anchor = 0;
+}
+
+int				list_get_fastest_distance(t_list *list, int value)
+{
+	int			forward_value;
+	int			backward_value;
+	int			i;
+
+	i = 0;
+	while (i < list->length)
+	{
+		forward_value = list_get(list, i);
+		backward_value = list_get(list, -i);
+		if (forward_value == value)
+			return (i);
+		if (backward_value == value)
+			return (-i);
+		i++;
+	}
+	return (0);
 }

@@ -21,3 +21,15 @@ void	list_reverse_rotate(t_list *list)
 {
 	list->anchor--;
 }
+
+void		list_rotate_order_by_desc(t_list *list)
+{
+	int		max;
+	t_route	route;
+
+	max = list_get_highest_number(list, INT_MAX);
+	route.distance_a = 0;
+	route.distance_b = list_get_fastest_distance(list, max);
+	print_instructions_by_route(route);
+	apply_distance_to_list(list, route.distance_b);
+}
