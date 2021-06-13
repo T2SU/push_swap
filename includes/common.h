@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 19:00:47 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 19:08:58 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,16 @@ t_bool			is_all_distinct(t_list *list);
 */
 
 void			raise_error(const char *des);
+void			raise_error_description(const char *des, const char *desc);
+
+/*
+**  ===========================================
+**      srcs/common/utils/print.c
+**  ===========================================
+*/
+
+void			print(const char *str);
+void			print_error(const char *str);
 
 /*
 ** libft

@@ -6,13 +6,12 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:25 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 01:49:45 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 19:12:40 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 #include <stdlib.h>
-#include <unistd.h>
 
 t_bool		list_init(t_list *list, int length)
 {
@@ -47,13 +46,6 @@ t_bool		list_init(t_list *list, int length)
 **       - RealIndex = 0
 */
 
-void		print(const char *prefix, t_list *list)
-{
-	write(STDOUT_FILENO, prefix, ft_strlen(prefix));
-	write(STDOUT_FILENO, ": ", 2);
-	list_print(list);
-}
-
 void		list_print(t_list *list)
 {
 	int		i;
@@ -66,15 +58,15 @@ void		list_print(t_list *list)
 		array_index = list_get_real_index(list, i + list->anchor);
 		if ((a = ft_itoa(list->values[array_index])))
 		{
-			write(STDOUT_FILENO, a, ft_strlen(a));
+			print(a);
 			free(a);
 		}
 		else
-			write(STDOUT_FILENO, "?", 1);
-		write(STDOUT_FILENO, " ", 1);
+			print("?");
+		print(" ");
 		i++;
 	}
-	write(STDOUT_FILENO, "\n", 1);
+	print("\n");
 }
 
 void		list_free(t_list *list)

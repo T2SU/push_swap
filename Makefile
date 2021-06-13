@@ -13,6 +13,7 @@ COMMON = \
 	route/route_apply \
 	utils/distinct \
 	utils/error \
+	utils/print \
 	libft/ft_abs \
 	libft/ft_atoi_strict \
 	libft/ft_isneg \
@@ -27,7 +28,8 @@ COMMON_OBJ = $(COMMON_SRC:.c=.o)
 
 PUSH_SWAP_DIR = ./srcs/push_swap/
 PUSH_SWAP = \
-	main
+	main \
+	navigator
 PUSH_SWAP_SRC = $(addprefix $(PUSH_SWAP_DIR), $(addsuffix .c, $(PUSH_SWAP)))
 PUSH_SWAP_OBJ = $(PUSH_SWAP_SRC:.c=.o)
 

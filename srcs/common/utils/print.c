@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/13 01:31:40 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 19:15:46 by smun             ###   ########.fr       */
+/*   Created: 2021/06/13 19:05:07 by smun              #+#    #+#             */
+/*   Updated: 2021/06/13 19:14:19 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
-#include <stdlib.h>
 #include <unistd.h>
 
-void		raise_error_description(const char *des, const char *desc)
+static void	print_fd(int fd, const char *str)
 {
-	print_error("Error\n");
-	if (des != NULL)
-	{
-		print_error(des);
-		if (desc != NULL)
-		{
-			print_error(": ");
-			print_error(desc);
-		}
-		print_error("\n");
-	}
-	exit(EXIT_FAILURE);
+	write(fd, str, ft_strlen(str));
 }
 
-void		raise_error(const char *des)
+/*
+** equivalent with ft_putstr
+*/
+
+void		print(const char *str)
 {
-	raise_error_description(des, NULL);
+	print_fd(STDOUT_FILENO, str);
+}
+
+void		print_error(const char *str)
+{
+	print_fd(STDERR_FILENO, str);
 }
