@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 02:02:47 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 02:21:08 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 14:07:58 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	apply_step(t_route *pr, int step_a, int step_b, const char *str)
 	pr->distance_a += step_a;
 	pr->distance_b += step_b;
 	write(STDOUT_FILENO, str, ft_strlen(str));
+	write(STDOUT_FILENO, "\n", 1);
 }
 
 static int	get_number_positive(int num)

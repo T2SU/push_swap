@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 02:22:06 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 14:13:47 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ enum			e_positive
 	POSITIVE,
 	NEGATIVE,
 	ZERO
+};
+
+enum			e_pushdirection
+{
+	A_TO_B,
+	B_TO_A
 };
 
 typedef int		t_bool;
@@ -90,6 +96,7 @@ void			list_set(t_list *list, int index, int value);
 */
 
 t_bool			list_push_one(t_list *list, int value);
+t_bool			list_push(t_list *list_a, t_list *list_b, int dir);
 
 /*
 **  ===========================================

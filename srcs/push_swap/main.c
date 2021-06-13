@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 20:35:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 02:01:51 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 13:58:15 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void		parse_into_list(t_list *list, int argc, char *argv[])
 		raise_error("lacked arguments.");
 	while (i < argc)
 	{
-		if (!ft_atoi_strict(argv[i], &num))
+		if (!ft_atoi_strict(argv[i++], &num))
 			raise_error("some arguments are not integer or unparsable.");
 		list_push_one(list, num);
 	}

@@ -10,6 +10,7 @@ COMMON = \
 	list/list_clone \
 	list/list \
 	route/route \
+	route/route_apply \
 	utils/distinct \
 	utils/error \
 	libft/ft_abs \

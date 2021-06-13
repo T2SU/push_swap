@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:56:26 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 02:42:03 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 14:12:59 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,21 @@ t_bool			list_push_one(t_list *list, int value)
 		list->anchor++;
 	list->length++;
 	return (TRUE);
+}
+
+t_bool			list_push(t_list *list_a, t_list *list_b, int dir)
+{
+	if (dir == A_TO_B)
+	{
+		if (list_a->length == 0)
+			return (FALSE);
+		return list_push_one(list_b, list_pop_one(list_a));
+	}
+	else if (dir == B_TO_A)
+	{
+		if (list_b->length == 0)
+			return (FALSE);
+		return list_push_one(list_a, list_pop_one(list_b));
+	}
+	return (FALSE);
 }
