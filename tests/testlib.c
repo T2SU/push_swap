@@ -6,16 +6,19 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:15:05 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 21:56:32 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 14:55:04 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "testlib.h"
 #include <unistd.h>
+#include <signal.h>
 #include <sys/wait.h>
 #include <sys/time.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <errno.h>
+#include <string.h>
 
 #define RED "\033[31m"
 #define GREEN "\033[32m"
@@ -70,6 +73,57 @@ int				do_test(void(*testfunc)())
 		exit(EXIT_SUCCESS);
 	}
 	waitpid(pid, &status, 0);
+	apply_result(0, status, NULL);
+	return (status);
+}
+
+static int		compare_with_fd(const char *compare, int fd)
+{
+	char		buffer[1024];
+	int			compare_index;
+
+	compare_index = 0;
+	while(1)
+	{
+		ssize_t size = read(fd, buffer, sizeof(buffer));
+		if (size < 0)
+			return (-1);
+		if (size == 0)
+			break ;
+		if (strncmp(&compare[compare_index], buffer, size))
+			return (1);
+		compare_index += size;
+	}
+	return (0);
+}
+
+int				do_test_stdout_real(void(*testfunc)(), const char *file, int line, const char *compare)
+{
+	int			fd[2];
+	int			status;
+	pid_t		pid;
+
+	if (pipe(fd) == -1)
+	{
+		apply_result(0, SIGABRT, NULL);
+		return (SIGABRT);
+	}
+	pid = fork();
+	if (!pid)
+	{
+		close(fd[0]);
+		dup2(fd[1], STDOUT_FILENO);
+		testfunc();
+		exit(EXIT_SUCCESS);
+	}
+	close(fd[1]);
+	waitpid(pid, &status, 0);
+	if (compare_with_fd(compare, fd[0]))
+	{
+		printf(RED"failed: different stdout - %s:%d"RESET"\n", file, line);
+		status = SIGABRT;
+	}
+	close(fd[0]);
 	apply_result(0, status, NULL);
 	return (status);
 }

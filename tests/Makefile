@@ -4,7 +4,8 @@ INC = -I../includes -I.
 LIBSRCS = $(wildcard ../srcs/common/libft/*.c) \
 			$(wildcard ../srcs/common/list/*.c) \
 			$(wildcard ../srcs/common/route/*.c) \
-			$(wildcard ../srcs/common/utils/*.c)
+			$(wildcard ../srcs/common/utils/*.c) \
+			../srcs/push_swap/navigator.c
 LIBOBJ = $(LIBSRCS:.c=.o)
 TESTSRCS = $(wildcard test_*.c)
 TESTOBJ = $(TESTSRCS:.c=.o)
