@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:15:05 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 14:55:04 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 15:03:05 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int				do_test(void(*testfunc)())
 static int		compare_with_fd(const char *compare, int fd)
 {
 	char		buffer[1024];
-	int			compare_index;
+	size_t		compare_index;
 
 	compare_index = 0;
 	while(1)
@@ -90,10 +90,12 @@ static int		compare_with_fd(const char *compare, int fd)
 			return (-1);
 		if (size == 0)
 			break ;
-		if (strncmp(&compare[compare_index], buffer, size))
+		if (memcmp(&compare[compare_index], buffer, size))
 			return (1);
 		compare_index += size;
 	}
+	if (strlen(compare) != compare_index)
+		return (1);
 	return (0);
 }
 
@@ -114,6 +116,7 @@ int				do_test_stdout_real(void(*testfunc)(), const char *file, int line, const 
 		close(fd[0]);
 		dup2(fd[1], STDOUT_FILENO);
 		testfunc();
+		close(fd[1]);
 		exit(EXIT_SUCCESS);
 	}
 	close(fd[1]);
