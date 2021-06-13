@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 20:35:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 19:17:58 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 19:32:11 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int				main(int argc, char *argv[])
 		raise_error("there are duplicates.");
 	while (navigate(&list_a, &list_b))
 		list_push(&list_a, &list_b, A_TO_B);
+	while (list_b.length > 0)
+		list_push(&list_a, &list_b, B_TO_A);
 	list_free(&list_a);
 	list_free(&list_b);
 	return (0);
