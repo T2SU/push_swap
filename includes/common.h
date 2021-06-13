@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 14:13:47 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 19:00:47 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,22 @@
 # include <stddef.h>
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
-
-enum			e_bool
-{
-	FALSE,
-	TRUE
-};
+# define FALSE 0
+# define TRUE 1
+# define A_TO_B 0
+# define B_TO_A 1
 
 enum			e_numberflag
 {
-	HAS_HIGHER = 1 << 0,
-	HAS_LOWER = 1 << 1
+	kHasHigher = 1 << 0,
+	kHasLower = 1 << 1
 };
 
 enum			e_positive
 {
-	POSITIVE,
-	NEGATIVE,
-	ZERO
-};
-
-enum			e_pushdirection
-{
-	A_TO_B,
-	B_TO_A
+	kPositive,
+	kNegative,
+	kZero
 };
 
 typedef int		t_bool;

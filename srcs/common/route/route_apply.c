@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 02:02:47 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 14:07:58 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 19:00:05 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static void	apply_step(t_route *pr, int step_a, int step_b, const char *str)
 static int	get_number_positive(int num)
 {
 	if (num > 0)
-		return (POSITIVE);
+		return (kPositive);
 	if (num < 0)
-		return (NEGATIVE);
-	return (ZERO);
+		return (kNegative);
+	return (kZero);
 }
 
 void		apply_route(t_route route)
@@ -39,19 +39,19 @@ void		apply_route(t_route route)
 	{
 		a_positive = get_number_positive(route.distance_a);
 		b_positive = get_number_positive(route.distance_b);
-		if (a_positive == ZERO && b_positive == ZERO)
+		if (a_positive == kZero && b_positive == kZero)
 			break ;
-		if (a_positive == NEGATIVE && b_positive == NEGATIVE)
+		if (a_positive == kNegative && b_positive == kNegative)
 			apply_step(&route, +1, +1, "rr");
-		else if (a_positive == POSITIVE && b_positive == POSITIVE)
+		else if (a_positive == kPositive && b_positive == kPositive)
 			apply_step(&route, -1, -1, "rrr");
-		else if (a_positive == NEGATIVE)
+		else if (a_positive == kNegative)
 			apply_step(&route, +1, 0, "ra");
-		else if (a_positive == POSITIVE)
+		else if (a_positive == kPositive)
 			apply_step(&route, -1, 0, "rra");
-		else if (b_positive == NEGATIVE)
+		else if (b_positive == kNegative)
 			apply_step(&route, 0, +1, "rb");
-		else if (b_positive == POSITIVE)
+		else if (b_positive == kPositive)
 			apply_step(&route, 0, -1, "rrb");
 	}
 }

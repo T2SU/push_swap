@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 02:45:57 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 21:41:43 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/13 18:59:51 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ static int		retrieve_number_flag(t_list *list, int basis)
 	while (i < list->length)
 	{
 		if (list_get(list, i) > basis)
-			flag |= HAS_HIGHER;
+			flag |= kHasHigher;
 		if (list_get(list, i) < basis)
-			flag |= HAS_LOWER;
+			flag |= kHasLower;
 		i++;
 	}
 	return (flag);
@@ -79,9 +79,9 @@ static int		calculate_route_for_proper_index(t_list *list, int value)
 	const int	flag = retrieve_number_flag(list, value);
 	int			destination;
 	
-	if ((flag & HAS_HIGHER) && (flag & HAS_LOWER))
+	if ((flag & kHasHigher) && (flag & kHasLower))
 		destination = get_highest_number(list, value);
-	else if ((flag & HAS_HIGHER) || (flag & HAS_LOWER))
+	else if ((flag & kHasHigher) || (flag & kHasLower))
 		destination = get_highest_number(list, INT_MIN);
 	else
 		return (0);
