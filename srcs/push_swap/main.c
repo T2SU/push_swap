@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 20:35:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/14 17:17:30 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/14 18:15:59 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		case_tiny(t_list *list_a, t_list *list_b)
 {
-
+	
 }
 
 static void		case_huge(t_list *list_a, t_list *list_b)

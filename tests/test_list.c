@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 14:30:08 by smun              #+#    #+#             */
-/*   Updated: 2021/06/14 16:53:51 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/15 00:26:58 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -266,7 +266,7 @@ int main(int argc, char *argv[])
 	do_test(&rotate_reverse);
 	do_test(&push_rotate_pop);
 	do_test(&clone);
-	is_sorted();
+	do_test(&is_sorted);
 	print_test_result(argc, argv[0]);
 	return 0;
 }

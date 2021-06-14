@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:15:05 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 15:03:05 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/15 00:36:24 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,19 +99,35 @@ static int		compare_with_fd(const char *compare, int fd)
 	return (0);
 }
 
-int				do_test_stdout_real(void(*testfunc)(), const char *file, int line, const char *compare)
+static int		count_newline(int fd)
 {
-	int			fd[2];
-	int			status;
-	pid_t		pid;
+	char		buffer[1024];
+	int			count;
 
+	count = 0;
+	while(1)
+	{
+		ssize_t size = read(fd, buffer, sizeof(buffer));
+		if (size < 0)
+			return (-1);
+		if (size == 0)
+			break ;
+		for (int i = 0; i < size; i++)
+			if (buffer[i] == '\n')
+				count++;
+	}
+	return (count);
+}
+
+static int		pipe_child(void(*testfunc)(), int *fd, pid_t *ppid)
+{
 	if (pipe(fd) == -1)
 	{
 		apply_result(0, SIGABRT, NULL);
 		return (SIGABRT);
 	}
-	pid = fork();
-	if (!pid)
+	*ppid = fork();
+	if (!(*ppid))
 	{
 		close(fd[0]);
 		dup2(fd[1], STDOUT_FILENO);
@@ -120,13 +136,47 @@ int				do_test_stdout_real(void(*testfunc)(), const char *file, int line, const 
 		exit(EXIT_SUCCESS);
 	}
 	close(fd[1]);
-	waitpid(pid, &status, 0);
-	if (compare_with_fd(compare, fd[0]))
+	return (0);
+}
+
+int				do_test_stdout_real(void(*testfunc)(), const char *file, int line, const char *compare)
+{
+	int			fd[2];
+	int			status;
+	pid_t		pid;
+
+	if (0 == (status = pipe_child(testfunc, fd, &pid)))
 	{
-		printf(RED"failed: different stdout - %s:%d"RESET"\n", file, line);
+		waitpid(pid, &status, 0);
+		if (compare_with_fd(compare, fd[0]))
+		{
+			printf(RED"failed: different stdout - %s:%d"RESET"\n", file, line);
+			status = SIGABRT;
+		}
+		close(fd[0]);
+		apply_result(0, status, NULL);
+	}
+	return (status);
+}
+
+int				do_test_count_newline_real(void(*testfunc)(), const char *file, int line, int max_newline_count)
+{
+	int			fd[2];
+	int			status;
+	pid_t		pid;
+
+	if (0 == (status = pipe_child(testfunc, fd, &pid)))
+	{
+	waitpid(pid, &status, 0);
+	int count = count_newline(fd[0]);
+	if (count > max_newline_count)
+	{
+		printf(RED"failed: too many instructions (your:%d) (max:%d) - %s:%d"RESET"\n", 
+			count, max_newline_count, file, line);
 		status = SIGABRT;
 	}
 	close(fd[0]);
 	apply_result(0, status, NULL);
+	}
 	return (status);
 }

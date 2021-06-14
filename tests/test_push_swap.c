@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 20:20:04 by smun              #+#    #+#             */
-/*   Updated: 2021/06/14 03:20:48 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/15 00:35:43 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,12 @@ static void test_case_1(void)
 	list_rotate_order_by_desc(&list_b);
 	while (list_b.length > 0)
 		list_push(&list_a, &list_b, B_TO_A);
-	list_print(&list_a);
 	test_free(&list_a, &list_b);
 }
 
 int			main(int argc, char *argv[])
 {
-	do_test(&test_case_1);
+	do_test_newline(&test_case_1, 12);
 	print_test_result(argc, argv[0]);
 	return 0;
 }
