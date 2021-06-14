@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 14:30:08 by smun              #+#    #+#             */
-/*   Updated: 2021/06/12 02:53:42 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/14 16:53:51 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,6 +224,39 @@ static void clone(void)
 	}
 }
 
+static void is_sorted(void)
+{
+	t_list	li1;
+
+	list_init(&li1, 0);
+	list_push_one(&li1, 6);
+	list_push_one(&li1, 1);
+	list_push_one(&li1, 2);
+	list_push_one(&li1, 3);
+	list_push_one(&li1, 4);
+	// 4 3 2 1 6
+	for (int i = 0; i < 100; i++)
+	{
+		assert(list_is_sorted(&li1, kDescending));
+		assert(!list_is_sorted(&li1, kAscending));
+		list_rotate(&li1);
+	}
+	list_free(&li1);
+	list_init(&li1, 0);
+	list_push_one(&li1, 0);
+	list_push_one(&li1, 4);
+	list_push_one(&li1, 3);
+	list_push_one(&li1, 2);
+	list_push_one(&li1, 1);
+	// 1 2 3 4 0
+	for (int i = 0; i < 100; i++)
+	{
+		assert(!list_is_sorted(&li1, kDescending));
+		assert(list_is_sorted(&li1, kAscending));
+		list_reverse_rotate(&li1);
+	}
+}
+
 int main(int argc, char *argv[])
 {
 	do_test(&new_list);
@@ -233,6 +266,7 @@ int main(int argc, char *argv[])
 	do_test(&rotate_reverse);
 	do_test(&push_rotate_pop);
 	do_test(&clone);
+	is_sorted();
 	print_test_result(argc, argv[0]);
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:57:30 by smun              #+#    #+#             */
-/*   Updated: 2021/06/14 03:04:47 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/14 03:44:22 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,23 @@ int			list_get_highest_number(t_list *list, int basis)
 			highest = num;
 	}
 	return (highest);
+}
+
+int			list_get_lowest_number(t_list *list, int basis)
+{
+	int		lowest;
+	int		i;
+	int		num;
+
+	lowest = INT_MAX;
+	i = 0;
+	while (i < list->length)
+	{
+		num = list_get(list, i++);
+		if (basis > num)
+			continue;
+		if (lowest > num)
+			lowest = num;
+	}
+	return (lowest);
 }

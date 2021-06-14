@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/14 03:08:25 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/14 03:52:20 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ enum			e_positive
 	kPositive,
 	kNegative,
 	kZero
+};
+
+enum			e_order
+{
+	kAscending,
+	kDescending
 };
 
 typedef int		t_bool;
@@ -82,6 +88,7 @@ int				list_get_real_index(t_list *list, int index);
 int				list_get(t_list *list, int index);
 void			list_set(t_list *list, int index, int value);
 int				list_get_highest_number(t_list *list, int basis);
+int				list_get_lowest_number(t_list *list, int basis);
 
 /*
 **  ===========================================
@@ -117,6 +124,14 @@ void			list_rotate_order_by_desc(t_list *list);
 */
 
 t_bool			list_clone(t_list *from, t_list *to);
+
+/*
+**  ===========================================
+**      srcs/common/list/list_sorted.c
+**  ===========================================
+*/
+
+t_bool			list_is_sorted(t_list *list, int order);
 
 /*
 **  ===========================================

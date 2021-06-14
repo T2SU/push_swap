@@ -8,6 +8,7 @@ COMMON = \
 	list/list_push \
 	list/list_rotate \
 	list/list_clone \
+	list/list_sorted \
 	list/list \
 	route/route \
 	route/route_apply \
