@@ -12,12 +12,12 @@
 
 #include "common.h"
 
-void		list_rotate(t_list *list)
+void		list_reverse_rotate(t_list *list)
 {
 	list->anchor++;
 }
 
-void		list_reverse_rotate(t_list *list)
+void		list_rotate(t_list *list)
 {
 	list->anchor--;
 }

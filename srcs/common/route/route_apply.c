@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 02:02:47 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 00:01:21 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/19 00:05:14 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ void		print_instructions_by_route(t_route route)
 		if (a_positive == kZero && b_positive == kZero)
 			break ;
 		if (a_positive == kNegative && b_positive == kNegative)
-			step_instruction(&route, +1, +1, "rr");
+			step_instruction(&route, +1, +1, "rrr");
 		else if (a_positive == kPositive && b_positive == kPositive)
-			step_instruction(&route, -1, -1, "rrr");
+			step_instruction(&route, -1, -1, "rr");
 		else if (a_positive == kNegative)
-			step_instruction(&route, +1, 0, "ra");
+			step_instruction(&route, +1, 0, "rra");
 		else if (a_positive == kPositive)
-			step_instruction(&route, -1, 0, "rra");
+			step_instruction(&route, -1, 0, "ra");
 		else if (b_positive == kNegative)
-			step_instruction(&route, 0, +1, "rb");
+			step_instruction(&route, 0, +1, "rrb");
 		else if (b_positive == kPositive)
-			step_instruction(&route, 0, -1, "rrb");
+			step_instruction(&route, 0, -1, "rb");
 	}
 }
 
@@ -62,12 +62,12 @@ void		apply_distance_to_list(t_list *list, int distance)
 	{
 		if (distance > 0)
 		{
-			list_rotate(list);
+			list_reverse_rotate(list);
 			distance--;
 		}
 		if (distance < 0)
 		{
-			list_reverse_rotate(list);
+			list_rotate(list);
 			distance++;
 		}
 	}

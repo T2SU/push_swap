@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/18 23:44:33 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/19 00:05:13 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,8 @@ int				list_pop_one(t_list *list);
 **  ===========================================
 */
 
-void			list_rotate(t_list *list);
 void			list_reverse_rotate(t_list *list);
+void			list_rotate(t_list *list);
 void			list_rotate_order_by(t_list *list_a, t_list *list_b, int order);
 
 /*
