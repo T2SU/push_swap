@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 20:20:04 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 00:56:01 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/19 01:46:49 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,6 @@ static void test_free(t_list *list_a, t_list *list_b)
 	list_free(list_b);
 }
 
-static void test_check_is_sorted(t_list *list_a, t_list *list_b)
-{
-	assert(list_b->length == 0);
-	assert(list_get(list_a, 0) == list_get_lowest_number(list_a, INT_MIN));
-	assert(list_get(list_a, -1) == list_get_highest_number(list_a, INT_MAX));
-	assert(list_is_sorted(list_a, kAscending));
-}
-
 static void test_case_1(void)
 {
 	const int	argc = 6;
@@ -46,7 +38,10 @@ static void test_case_1(void)
 
 	test_init(&list_a, &list_b);
 	do_game(&list_a, &list_b, argc, argv);
-	test_check_is_sorted(&list_a, &list_b);
+	assert(list_b.length == 0);
+	assert(list_get(&list_a, 0) == list_get_lowest_number(&list_a, INT_MIN));
+	assert(list_get(&list_a, -1) == list_get_highest_number(&list_a, INT_MAX));
+	assert(list_is_sorted(&list_a, kAscending));
 	test_free(&list_a, &list_b);
 }
 
@@ -59,7 +54,10 @@ static void test_case_2(void)
 
 	test_init(&list_a, &list_b);
 	do_game(&list_a, &list_b, argc, argv);
-	test_check_is_sorted(&list_a, &list_b);
+	assert(list_b.length == 0);
+	assert(list_get(&list_a, 0) == list_get_lowest_number(&list_a, INT_MIN));
+	assert(list_get(&list_a, -1) == list_get_highest_number(&list_a, INT_MAX));
+	assert(list_is_sorted(&list_a, kAscending));
 	test_free(&list_a, &list_b);
 }
 

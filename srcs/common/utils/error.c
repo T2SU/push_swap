@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 01:31:40 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 19:15:46 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/19 01:30:14 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,24 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/*
+** if (des != NULL)
+** {
+** 	print_error(des);
+** 	if (desc != NULL)
+** 	{
+** 		print_error(": ");
+** 		print_error(desc);
+** 	}
+** 	print_error("\n");
+** }
+*/
+
 void		raise_error_description(const char *des, const char *desc)
 {
 	print_error("Error\n");
-	if (des != NULL)
-	{
-		print_error(des);
-		if (desc != NULL)
-		{
-			print_error(": ");
-			print_error(desc);
-		}
-		print_error("\n");
-	}
+	(void)des;
+	(void)desc;
 	exit(EXIT_FAILURE);
 }
 

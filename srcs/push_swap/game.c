@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:47:15 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 00:19:13 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/19 01:44:34 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static void	case_tiny(t_list *list_a, t_list *list_b)
 
 static void	case_huge(t_list *list_a, t_list *list_b)
 {
+	if (list_is_sorted(list_a, kAscending))
+		return ;
 	while (navigate(list_a, list_b))
 		list_push(list_a, list_b, A_TO_B);
 	list_rotate_order_by(NULL, list_b, kDescending);
