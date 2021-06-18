@@ -6,3 +6,4 @@ a.out
 *.o
 checker
 push_swap
+checker_linux
