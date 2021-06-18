@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 20:35:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/18 23:59:15 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/19 00:13:02 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int			main(int argc, char *argv[])
 	if (!list_init(&list_b, 0))
 		raise_error("failed to initialize the stack B");
 	do_game(&list_a, &list_b, argc, argv);
-	//list_print(&list_a);
-	//list_print(&list_b);
 	list_free(&list_a);
 	list_free(&list_b);
 	return (0);

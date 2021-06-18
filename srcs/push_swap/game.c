@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:47:15 by smun              #+#    #+#             */
-/*   Updated: 2021/06/18 23:49:41 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/19 00:19:13 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 static void	case_tiny(t_list *list_a, t_list *list_b)
 {
-	int		index;
 	t_route	route;
 	
+	ft_bzero(&route, sizeof(t_route));
 	while (list_a->length > 3 && !list_is_sorted(list_a, kAscending))
 	{
-		if (list_find_unsorted_biggest(list_a, &index))
+		if (list_find_unsorted_biggest(list_a, &route.distance_a))
 		{
-			apply_distance_to_list(list_a, index);
+			print_instructions_by_route(route);
+			apply_distance_to_list(list_a, route.distance_a);
 			list_push(list_a, list_b, A_TO_B);
 			continue ;
 		}
