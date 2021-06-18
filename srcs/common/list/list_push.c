@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:56:26 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 01:07:22 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/19 01:23:57 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_bool			list_push_one(t_list *list, int value)
 	int			idx;
 	int			*ptr;
 	int			move_size;
-	int			a;
 
 	idx = list_get_real_index(list, list->anchor);
 	if (!ensure_list_size(list, list->length + 1))
@@ -50,15 +49,12 @@ t_bool			list_push_one(t_list *list, int value)
 	if (move_size > 0)
 		ft_memmove(&ptr[idx + 1], &ptr[idx], move_size);
 	ptr[idx] = value;
+	if (list->length != 0)
+		list->anchor %= list->length;
 	if (list->anchor < 0)
 		list->anchor--;
 	else if (list->length <= list->anchor)
-	{
-		a = 1;
-		if (list->length > 0)
-			a = list->anchor / list->length;
-		list->anchor += a;
-	}
+		list->anchor++;
 	list->length++;
 	return (TRUE);
 }
