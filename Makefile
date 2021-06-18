@@ -9,6 +9,7 @@ COMMON = \
 	list/list_rotate \
 	list/list_clone \
 	list/list_sorted \
+	list/list_find_unsorted \
 	list/list \
 	route/route \
 	route/route_apply \

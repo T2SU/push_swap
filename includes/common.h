@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/14 03:52:20 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/18 22:26:11 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct	s_route
 **  ===========================================
 */
 
-t_route			calculate_route(t_list *list_a, t_list *list_b, int value);
+t_route			calculate_route(t_list *a, t_list *b, int value, int dir);
 void			print_instructions_by_route(t_route route);
 void			apply_distance_to_list(t_list *list, int distance);
 
@@ -115,7 +115,7 @@ int				list_pop_one(t_list *list);
 
 void			list_rotate(t_list *list);
 void			list_reverse_rotate(t_list *list);
-void			list_rotate_order_by_desc(t_list *list);
+void			list_rotate_order_by(t_list *list_a, t_list *list_b, int order);
 
 /*
 **  ===========================================
@@ -132,6 +132,14 @@ t_bool			list_clone(t_list *from, t_list *to);
 */
 
 t_bool			list_is_sorted(t_list *list, int order);
+
+/*
+**  ===========================================
+**      srcs/common/list/list_find_unsorted.c
+**  ===========================================
+*/
+
+t_bool			list_find_unsorted_biggest(t_list *list, int *pvalue);
 
 /*
 **  ===========================================

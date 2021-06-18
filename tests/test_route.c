@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 03:30:19 by smun              #+#    #+#             */
-/*   Updated: 2021/06/14 02:15:16 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/18 21:41:17 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,22 @@ static void	test_calculate_route(void)
 	t_list	list2;
 
 	init_test(&list1, &list2);
-	t_route route = calculate_route(&list1, &list2, 7);
+	t_route route = calculate_route(&list1, &list2, 7, A_TO_B);
 	assert(route.distance_a == 0);
 	assert(route.distance_b == 2);
 	assert(route.total_cost == 2);
 
-	route = calculate_route(&list1, &list2, 3);
+	route = calculate_route(&list1, &list2, 3, A_TO_B);
 	assert(route.distance_a == 1);
 	assert(route.distance_b == -2);
 	assert(route.total_cost == 3);
 	
-	route = calculate_route(&list1, &list2, 9);
+	route = calculate_route(&list1, &list2, 9, A_TO_B);
 	assert(route.distance_a == 2);
 	assert(route.distance_b == 1);
 	assert(route.total_cost == 2);
 	
-	route = calculate_route(&list1, &list2, 5);
+	route = calculate_route(&list1, &list2, 5, A_TO_B);
 	assert(route.distance_a == -1);
 	assert(route.distance_b == 3);
 	assert(route.total_cost == 4);
