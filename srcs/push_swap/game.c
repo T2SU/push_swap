@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:47:15 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 01:44:34 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/19 02:25:49 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,21 @@ static void	case_tiny(t_list *list_a, t_list *list_b)
 	list_rotate_order_by(list_a, NULL, kAscending);
 }
 
-static void	case_huge(t_list *list_a, t_list *list_b)
+static void	case_huge(t_list *a, t_list *b)
 {
-	if (list_is_sorted(list_a, kAscending))
+	if (list_is_sorted(a, kAscending))
+	{
+		if (list_get(a, -1) == list_get_highest_number(a, INT_MAX))
+			if (list_get(a, 0) == list_get_lowest_number(a, INT_MIN))
+				return ;
+		list_rotate_order_by(a, NULL, kAscending);
 		return ;
-	while (navigate(list_a, list_b))
-		list_push(list_a, list_b, A_TO_B);
-	list_rotate_order_by(NULL, list_b, kDescending);
-	while (list_b->length > 0)
-		list_push(list_a, list_b, B_TO_A);
+	}
+	while (navigate(a, b))
+		list_push(a, b, A_TO_B);
+	list_rotate_order_by(NULL, b, kDescending);
+	while (b->length > 0)
+		list_push(a, b, B_TO_A);
 }
 
 void		do_game(t_list *list_a, t_list *list_b, int argc, char *argv[])
