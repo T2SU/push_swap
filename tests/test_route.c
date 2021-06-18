@@ -6,11 +6,13 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 03:30:19 by smun              #+#    #+#             */
-/*   Updated: 2021/06/18 21:41:17 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/18 23:45:49 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <assert.h>
+#include <time.h>
+#include <stdlib.h>
 #include "testlib.h"
 #include "common.h"
 #include "push_swap.h"
@@ -147,12 +149,33 @@ static void	test_navigate_2(void)
 	list_print(&list2);
 }
 
+void		test_sa(void)
+{
+	srand(time(NULL));
+	for (int i = 0; i < 10000; i++)
+	{
+		t_list list;
+		while (TRUE)
+		{
+			list_init(&list, 3);
+			list_push_one(&list, rand());
+			list_push_one(&list, rand());
+			list_push_one(&list, rand());
+			if (is_all_distinct(&list))
+				break ;
+		}
+		if (!list_is_sorted(&list, kAscending))
+			list_swap(&list, NULL);
+		list_free(&list);
+	}
+}
 
 int			main(int argc, char *argv[])
 {
 	do_test(&test_calculate_route);
 	do_test_stdout(&test_navigate_1, "rrb\nrrb\npa\nrra\nrb\npa\nrrb\nrrb\nrrb\nrrb\npa\nrrb\nrrb\npa\n");
 	do_test_stdout(&test_navigate_2, "rb\npa\n6 5 4 2 1 \n");
+	do_test(&test_sa);
 	print_test_result(argc, argv[0]);
 	return 0;
 }

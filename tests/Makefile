@@ -7,7 +7,8 @@ LIBSRCS = $(wildcard ../srcs/common/libft/*.c) \
 			$(wildcard ../srcs/common/route/*.c) \
 			$(wildcard ../srcs/common/utils/*.c) \
 			../srcs/push_swap/navigator.c \
-			../srcs/push_swap/parser.c
+			../srcs/push_swap/parser.c \
+			../srcs/push_swap/game.c
 
 LIBOBJ = $(LIBSRCS:.c=.o)
 TESTSRCS = $(wildcard test_*.c)

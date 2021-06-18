@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   list_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 20:35:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/18 23:47:21 by smun             ###   ########.fr       */
+/*   Created: 2021/06/18 23:34:41 by smun              #+#    #+#             */
+/*   Updated: 2021/06/18 23:44:48 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "common.h"
 
-int			main(int argc, char *argv[])
+t_bool		list_swap(t_list *list, const char *instruction)
 {
-	t_list	list_a;
-	t_list	list_b;
+	int		temp;
 
-	if (!list_init(&list_a, 0))
-		raise_error("failed to initialize the stack A");
-	if (!list_init(&list_b, 0))
-		raise_error("failed to initialize the stack B");
-	do_game(&list_a, &list_b, argc, argv);
-	list_free(&list_a);
-	list_free(&list_b);
-	return (0);
+	if (list->length <= 1)
+		return (FALSE);
+	temp = list_get(list, 0);
+	list_set(list, 0, list_get(list, 1));
+	list_set(list, 1, temp);
+	if (instruction != NULL)
+	{
+		print(instruction);
+		print("\n");	
+	}
+	return (TRUE);
 }

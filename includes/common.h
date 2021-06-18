@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/18 22:26:11 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/18 23:44:33 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,14 @@ t_bool			list_clone(t_list *from, t_list *to);
 */
 
 t_bool			list_is_sorted(t_list *list, int order);
+
+/*
+**  ===========================================
+**      srcs/common/list/list_swap.c
+**  ===========================================
+*/
+
+t_bool			list_swap(t_list *list, const char *instruction);
 
 /*
 **  ===========================================

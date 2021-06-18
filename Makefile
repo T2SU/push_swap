@@ -10,6 +10,7 @@ COMMON = \
 	list/list_clone \
 	list/list_sorted \
 	list/list_find_unsorted \
+	list/list_swap \
 	list/list \
 	route/route \
 	route/route_apply \
@@ -31,6 +32,7 @@ COMMON_OBJ = $(COMMON_SRC:.c=.o)
 PUSH_SWAP_DIR = ./srcs/push_swap/
 PUSH_SWAP = \
 	main \
+	game \
 	navigator \
 	parser
 PUSH_SWAP_SRC = $(addprefix $(PUSH_SWAP_DIR), $(addsuffix .c, $(PUSH_SWAP)))

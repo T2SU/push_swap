@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 14:30:08 by smun              #+#    #+#             */
-/*   Updated: 2021/06/15 00:26:58 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/18 23:52:43 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -257,6 +257,29 @@ static void is_sorted(void)
 	}
 }
 
+static void test_swap(void)
+{
+	t_list	li1;
+
+	list_init(&li1, 0);
+	assert(list_swap(&li1, "aa") == FALSE);
+	list_push_one(&li1, 1234);
+	assert(list_swap(&li1, NULL) == FALSE);
+	list_push_one(&li1, 5678);
+	assert(list_get(&li1, 0) == 5678);
+	assert(list_get(&li1, 1) == 1234);
+	assert(list_swap(&li1, "b"));
+	assert(list_get(&li1, 0) == 1234);
+	assert(list_get(&li1, 1) == 5678);
+	assert(list_swap(&li1, ""));
+	assert(list_get(&li1, 0) == 5678);
+	assert(list_get(&li1, 1) == 1234);
+	list_push_one(&li1, 9012);
+	assert(list_swap(&li1, "Hello Hello"));
+	assert(list_get(&li1, 0) == 5678);
+	assert(list_get(&li1, 1) == 9012);
+}
+
 int main(int argc, char *argv[])
 {
 	do_test(&new_list);
@@ -267,6 +290,7 @@ int main(int argc, char *argv[])
 	do_test(&push_rotate_pop);
 	do_test(&clone);
 	do_test(&is_sorted);
+	do_test_stdout(&test_swap, "b\n\nHello Hello\n");
 	print_test_result(argc, argv[0]);
 	return 0;
 }

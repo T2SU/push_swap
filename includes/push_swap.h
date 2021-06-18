@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 01:50:42 by smun              #+#    #+#             */
-/*   Updated: 2021/06/18 22:15:01 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/18 23:48:23 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,13 @@ t_route		find_route_by_lowest_cost(t_list *list_a, t_list *list_b, int dir);
 */
 
 void		parse_into_list(t_list *list, int argc, char *argv[]);
+
+/*
+**  ===========================================
+**      srcs/push_swap/game.c
+**  ===========================================
+*/
+
+void		do_game(t_list *list_a, t_list *list_b, int argc, char *argv[]);
 
 #endif
