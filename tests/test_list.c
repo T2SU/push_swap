@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 14:30:08 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 00:05:13 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/19 01:09:13 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -278,6 +278,30 @@ static void test_swap(void)
 	assert(list_swap(&li1, "Hello Hello"));
 	assert(list_get(&li1, 0) == 5678);
 	assert(list_get(&li1, 1) == 9012);
+	list_free(&li1);
+}
+
+static void test_list_anchor(void)
+{
+	t_list	li1;
+	t_list	li2;
+
+	list_init(&li1, 5);
+	li1.values[0] = 1;
+	li1.values[1] = 2;
+	li1.values[2] = 4;
+	li1.length = 3;
+	li1.anchor = 6;
+	list_init(&li2, 2);
+	li2.values[0] = 5;
+	li2.values[1] = 7;
+	li2.length = 2;
+	li2.anchor = 2;
+	assert(list_get(&li1, 0) == 1);
+	list_push(&li1, &li2, B_TO_A);
+	assert(list_get(&li1, 0) == 5);
+	list_free(&li1);
+	list_free(&li2);
 }
 
 int main(int argc, char *argv[])
@@ -291,6 +315,7 @@ int main(int argc, char *argv[])
 	do_test(&clone);
 	do_test(&is_sorted);
 	do_test_stdout(&test_swap, "b\n\nHello Hello\n");
+	do_test_stdout(&test_list_anchor, "pa\n");
 	print_test_result(argc, argv[0]);
 	return 0;
 }

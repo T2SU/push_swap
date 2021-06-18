@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 20:20:04 by smun              #+#    #+#             */
-/*   Updated: 2021/06/18 23:51:47 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/19 00:56:01 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void test_check_is_sorted(t_list *list_a, t_list *list_b)
 static void test_case_1(void)
 {
 	const int	argc = 6;
-	char		*argv[] = {"", "1", "7", "5", "2", "4"};
+	char		*argv[] = {"", "1", "7", "2", "5", "4"};
 	t_list		list_a;
 	t_list		list_b;
 
