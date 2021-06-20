@@ -6,13 +6,14 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 03:25:13 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 06:22:57 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 07:18:36 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 #include "get_next_line.h"
 #include <unistd.h>
+#include <stdlib.h>
 
 static int			determine_target(const char *input)
 {
@@ -37,7 +38,7 @@ t_instruction		parse_instruction(const char *input)
 	t_instruction	ret;
 
 	ret.target = determine_target(input);
-	if (!ft_strcmp(input, "rr") || 
+	if (!ft_strcmp(input, "rr") ||
 		!ft_strcmp(input, "ra") ||
 		!ft_strcmp(input, "rb"))
 		ret.type = kRotate;
@@ -88,6 +89,7 @@ t_bool				action_from_stdin(t_list *list_a, t_list *list_b)
 	if (status == kReturnFoundLine || ft_strlen(line) > 0)
 		if (ins.target == 0)
 			raise_error_description("unknown instruction", line);
+	free(line);
 	do_action(list_a, list_b, ins);
 	return (status == kReturnFoundLine);
 }
