@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 14:30:08 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 01:25:09 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 05:03:56 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -298,12 +298,12 @@ static void test_list_anchor(void)
 	li2.length = 2;
 	li2.anchor = 2;
 	assert(list_get(&li1, 0) == 1);
-	list_push(&li1, &li2, B_TO_A);
+	list_push_and_print(&li1, &li2, B_TO_A);
 	assert(list_get(&li1, 0) == 5);
 	for (int i = 0; i < 1234; i++)
 		list_rotate(&li1);
 	assert(list_get(&li1, 0) == 2);
-	list_push(&li1, &li2, B_TO_A);
+	list_push_and_print(&li1, &li2, B_TO_A);
 	assert(list_get(&li1, 0) == 7);
 	list_free(&li1);
 	list_free(&li2);

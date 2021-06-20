@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_indexof.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/13 19:43:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/13 19:56:53 by smun             ###   ########.fr       */
+/*   Created: 2021/06/19 03:21:10 by smun              #+#    #+#             */
+/*   Updated: 2021/06/19 03:21:47 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "common.h"
 
-void			parse_into_list(t_list *list, int argc, char *argv[])
+ssize_t			ft_indexof(const char *s, int c, size_t len)
 {
-	const int	start_index = 1;
-	int			i;
-	int			num;
+	ssize_t		i;
 
-	if (argc <= start_index)
-		raise_error("lacked arguments.");
-	i = argc - 1;
-	while (i >= start_index)
+	if (s != NULL)
 	{
-		if (!ft_atoi_strict(argv[i], &num))
-			raise_error_description("unparsable into integer.", argv[i]);
-		list_push_one(list, num);
-		i--;
+		i = 0;
+		while (i < (ssize_t)len)
+		{
+			if (s[i] == (char)c)
+				return (i);
+			i++;
+		}
 	}
+	return (-1);
 }

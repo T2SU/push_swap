@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 00:05:13 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 05:30:44 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define COMMON_H
 
 # include <stddef.h>
+# include <unistd.h>
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define FALSE 0
@@ -98,6 +99,7 @@ int				list_get_lowest_number(t_list *list, int basis);
 
 t_bool			list_push_one(t_list *list, int value);
 t_bool			list_push(t_list *list_a, t_list *list_b, int dir);
+t_bool			list_push_and_print(t_list *list_a, t_list *list_b, int dir);
 
 /*
 **  ===========================================
@@ -176,6 +178,14 @@ void			print(const char *str);
 void			print_error(const char *str);
 
 /*
+**  ===========================================
+**      srcs/common/parser.c
+**  ===========================================
+*/
+
+void		parse_into_list(t_list *list, int argc, char *argv[]);
+
+/*
 ** libft
 */
 
@@ -189,5 +199,7 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			ft_bzero(void *s, size_t n);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlen(const char *s);
+ssize_t			ft_indexof(const char *s, int c, size_t len);
+int			ft_strcmp(const char *s1, const char *s2);
 
 #endif

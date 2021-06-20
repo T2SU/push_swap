@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 03:30:19 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 00:09:19 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 05:03:56 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static void	test_navigate_1(void)
 	assert(list_get(&list2, 0) == 6);
 	
 	/* Step 2 - Push */
-	assert(list_push(&list1, &list2, A_TO_B));
+	assert(list_push_and_print(&list1, &list2, A_TO_B));
 	// A: 3 9 5
 	// B: 7 6 4 2 1 10 8
 	assert(list_get(&list1, 0) == 3);
@@ -95,7 +95,7 @@ static void	test_navigate_1(void)
 	assert(list_get(&list2, 0) == 8);
 	
 	/* Step 4 - Push */
-	assert(list_push(&list1, &list2, A_TO_B));
+	assert(list_push_and_print(&list1, &list2, A_TO_B));
 	// A: 5 3
 	// B: 9 8 7 6 4 2 1 10
 	assert(list_get(&list1, 0) == 5);
@@ -109,7 +109,7 @@ static void	test_navigate_1(void)
 	assert(list_get(&list2, 0) == 4);
 	
 	/* Step 6 - Push */
-	assert(list_push(&list1, &list2, A_TO_B));
+	assert(list_push_and_print(&list1, &list2, A_TO_B));
 	// A: 3
 	// B: 5 4 2 1 10 9 8 7 6
 	assert(list_get(&list1, 0) == 3);
@@ -123,7 +123,7 @@ static void	test_navigate_1(void)
 	assert(list_get(&list2, 0) == 2);
 	
 	/* Step 8 - Push */
-	assert(list_push(&list1, &list2, A_TO_B));
+	assert(list_push_and_print(&list1, &list2, A_TO_B));
 	// A: 
 	// B: 3 2 1 10 9 8 7 6 5 4
 	assert(list1.length == 0);
@@ -145,7 +145,7 @@ static void	test_navigate_2(void)
 	list1.anchor = 1;
 	list2.anchor = 5;
 	navigate(&list1, &list2);
-	list_push(&list1, &list2, A_TO_B);
+	list_push_and_print(&list1, &list2, A_TO_B);
 	list_print(&list2);
 }
 

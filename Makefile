@@ -25,7 +25,11 @@ COMMON = \
 	libft/ft_memcpy \
 	libft/ft_memmove \
 	libft/ft_strlcpy \
-	libft/ft_bzero
+	libft/ft_bzero \
+	libft/ft_indexof \
+	libft/ft_strcmp \
+	gnl/get_next_line \
+	parser
 COMMON_SRC = $(addprefix $(COMMON_DIR), $(addsuffix .c, $(COMMON)))
 COMMON_OBJ = $(COMMON_SRC:.c=.o)
 
@@ -33,14 +37,14 @@ PUSH_SWAP_DIR = ./srcs/push_swap/
 PUSH_SWAP = \
 	main \
 	game \
-	navigator \
-	parser
+	navigator
 PUSH_SWAP_SRC = $(addprefix $(PUSH_SWAP_DIR), $(addsuffix .c, $(PUSH_SWAP)))
 PUSH_SWAP_OBJ = $(PUSH_SWAP_SRC:.c=.o)
 
 CHECKER_DIR = ./srcs/checker/
 CHECKER = \
-	main
+	main \
+	reader
 CHECKER_SRC = $(addprefix $(CHECKER_DIR), $(addsuffix .c, $(CHECKER)))
 CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 

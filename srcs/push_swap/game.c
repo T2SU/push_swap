@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:47:15 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 02:25:49 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 05:03:56 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	case_tiny(t_list *list_a, t_list *list_b)
 		{
 			print_instructions_by_route(route);
 			apply_distance_to_list(list_a, route.distance_a);
-			list_push(list_a, list_b, A_TO_B);
+			list_push_and_print(list_a, list_b, A_TO_B);
 			continue ;
 		}
 	}
@@ -35,7 +35,7 @@ static void	case_tiny(t_list *list_a, t_list *list_b)
 		print_instructions_by_route(route);
 		apply_distance_to_list(list_a, route.distance_a);
 		apply_distance_to_list(list_b, route.distance_b);
-		list_push(list_a, list_b, B_TO_A);
+		list_push_and_print(list_a, list_b, B_TO_A);
 	}
 	list_rotate_order_by(list_a, NULL, kAscending);
 }
@@ -51,10 +51,10 @@ static void	case_huge(t_list *a, t_list *b)
 		return ;
 	}
 	while (navigate(a, b))
-		list_push(a, b, A_TO_B);
+		list_push_and_print(a, b, A_TO_B);
 	list_rotate_order_by(NULL, b, kDescending);
 	while (b->length > 0)
-		list_push(a, b, B_TO_A);
+		list_push_and_print(a, b, B_TO_A);
 }
 
 void		do_game(t_list *list_a, t_list *list_b, int argc, char *argv[])
