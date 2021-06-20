@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 02:45:57 by smun              #+#    #+#             */
-/*   Updated: 2021/06/18 23:17:31 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 08:45:25 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int		calculate_for_proper_index(t_list *list, int value, int order)
 {
 	const int	flag = retrieve_number_flag(list, value);
 	int			destination;
-	
+
 	if ((flag & kHasHigher) && (flag & kHasLower))
 	{
 		if (order == kDescending)
@@ -76,7 +76,7 @@ static t_route	new_route(int a_route, int b_route, int total_cost)
 **  A's sign != B's sign
 **    -->  abs(a - b)
 */
-	
+
 t_route			calculate_route(t_list *a, t_list *b, int value, int dir)
 {
 	int			orig_route;

@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 03:41:56 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 01:47:03 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 08:44:24 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	get_anchor(t_list *list, int order)
 {
 	int		destination;
-	
+
 	if (order == kDescending)
 		destination = list_get_highest_number(list, INT_MAX);
 	else

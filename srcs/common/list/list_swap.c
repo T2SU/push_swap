@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:34:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/18 23:44:48 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 08:45:15 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_bool		list_swap(t_list *list, const char *instruction)
 	if (instruction != NULL)
 	{
 		print(instruction);
-		print("\n");	
+		print("\n");
 	}
 	return (TRUE);
 }

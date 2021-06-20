@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 05:30:44 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 08:47:29 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,7 @@ void			print_error(const char *str);
 **  ===========================================
 */
 
-void		parse_into_list(t_list *list, int argc, char *argv[]);
+void			parse_into_list(t_list *list, int argc, char *argv[]);
 
 /*
 ** libft
@@ -200,6 +200,6 @@ void			ft_bzero(void *s, size_t n);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlen(const char *s);
 ssize_t			ft_indexof(const char *s, int c, size_t len);
-int			ft_strcmp(const char *s1, const char *s2);
+int				ft_strcmp(const char *s1, const char *s2);
 
 #endif

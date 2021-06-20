@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:47:15 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 05:03:56 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 08:46:53 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	case_tiny(t_list *list_a, t_list *list_b)
 {
 	t_route	route;
-	
+
 	ft_bzero(&route, sizeof(t_route));
 	while (list_a->length > 3 && !list_is_sorted(list_a, kAscending))
 	{

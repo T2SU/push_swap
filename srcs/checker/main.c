@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 20:35:41 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 07:21:49 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 08:43:29 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ int				main(int argc, char *argv[])
 	if (!is_all_distinct(&list_a))
 		raise_error("there are duplicates.");
 	elem_count = list_a.length + list_b.length;
-	while (action_from_stdin(&list_a, &list_b)) ;
+	while (TRUE)
+		if (!action_from_stdin(&list_a, &list_b))
+			break ;
 	check_is_sorted(&list_a, &list_b, elem_count);
 	list_free(&list_a);
 	list_free(&list_b);

@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 01:50:31 by smun              #+#    #+#             */
-/*   Updated: 2021/06/18 23:02:56 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 08:47:06 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_route		find_route_by_lowest_cost(t_list *list_a, t_list *list_b, int dir)
 t_bool		navigate(t_list *list_a, t_list *list_b)
 {
 	t_route	route;
-	
+
 	if (list_a->length == 0)
 		return (FALSE);
 	route = find_route_by_lowest_cost(list_a, list_b, A_TO_B);

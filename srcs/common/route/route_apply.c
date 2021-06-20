@@ -6,14 +6,14 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 02:02:47 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 06:31:26 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 08:46:30 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 #include <unistd.h>
 
-static void	step_instruction(t_route *pr, int step_a, int step_b, const char *str)
+static void	step_route(t_route *pr, int step_a, int step_b, const char *str)
 {
 	pr->distance_a += step_a;
 	pr->distance_b += step_b;
@@ -42,17 +42,17 @@ void		print_instructions_by_route(t_route route)
 		if (a_positive == kZero && b_positive == kZero)
 			break ;
 		if (a_positive == kNegative && b_positive == kNegative)
-			step_instruction(&route, +1, +1, "rrr");
+			step_route(&route, +1, +1, "rrr");
 		else if (a_positive == kPositive && b_positive == kPositive)
-			step_instruction(&route, -1, -1, "rr");
+			step_route(&route, -1, -1, "rr");
 		else if (a_positive == kNegative)
-			step_instruction(&route, +1, 0, "rra");
+			step_route(&route, +1, 0, "rra");
 		else if (a_positive == kPositive)
-			step_instruction(&route, -1, 0, "ra");
+			step_route(&route, -1, 0, "ra");
 		else if (b_positive == kNegative)
-			step_instruction(&route, 0, +1, "rrb");
+			step_route(&route, 0, +1, "rrb");
 		else if (b_positive == kPositive)
-			step_instruction(&route, 0, -1, "rb");
+			step_route(&route, 0, -1, "rb");
 	}
 }
 
