@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 03:25:13 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 05:58:40 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 06:15:18 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,15 @@ static int				determine_target(const char *input)
 	int					ret;
 
 	ret = 0;
-	if (!ft_strcmp(input, "rr") ||
-		!ft_strcmp(input, "rrr") ||
-		!ft_strcmp(input, "ss"))
-		ret |= (kStackA | kStackB);
-	else if (!ft_strcmp(input, "ra") ||
-			!ft_strcmp(input, "sa") ||
-			!ft_strcmp(input, "rra") ||
-			!ft_strcmp(input, "pa"))
+	if (!ft_strcmp(input, "rr") || !ft_strcmp(input, "ra") ||
+		!ft_strcmp(input, "rrr") || !ft_strcmp(input, "rra") ||
+		!ft_strcmp(input, "ss") || !ft_strcmp(input, "sa") ||
+		!ft_strcmp(input, "pa"))
 		ret |= kStackA;
-	else if (!ft_strcmp(input, "rb") ||
-			!ft_strcmp(input, "sb") ||
-			!ft_strcmp(input, "rrb") ||
-			!ft_strcmp(input, "pb"))
+	if (!ft_strcmp(input, "rr") || !ft_strcmp(input, "rb") ||
+		!ft_strcmp(input, "rrr") || !ft_strcmp(input, "rrb") ||
+		!ft_strcmp(input, "ss") || !ft_strcmp(input, "sb") ||
+		!ft_strcmp(input, "pb"))
 		ret |= kStackB;
 	return (ret);
 }
