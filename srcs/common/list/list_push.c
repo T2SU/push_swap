@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:56:26 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 05:05:10 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 06:02:58 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_bool			list_push(t_list *list_a, t_list *list_b, int dir)
 
 t_bool			list_push_and_print(t_list *list_a, t_list *list_b, int dir)
 {
-	if (list_push_and_print(list_a, list_b, dir))
+	if (list_push(list_a, list_b, dir))
 	{
 		if (dir == A_TO_B)
 			print("pb\n");
