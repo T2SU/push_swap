@@ -14,12 +14,12 @@
 
 void		list_reverse_rotate(t_list *list)
 {
-	list->anchor++;
+	list->anchor--;
 }
 
 void		list_rotate(t_list *list)
 {
-	list->anchor--;
+	list->anchor++;
 }
 
 void		list_rotate_order_by(t_list *list_a, t_list *list_b, int order)

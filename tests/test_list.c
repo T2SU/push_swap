@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/18 14:30:08 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 05:03:56 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 06:33:27 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,19 +89,19 @@ static void rotate(void)
 	list_push_one(&list, 101010);
 	list_push_one(&list, 1256);
 	// 1256 101010 4567 1234
-	list_reverse_rotate(&list);
+	list_rotate(&list);
 	// 101010 4567 1234 1256
 	assert(101010 == list_get(&list, 0));
-	list_reverse_rotate(&list);
+	list_rotate(&list);
 	// 4567 1234 1256 101010
-	list_reverse_rotate(&list);
+	list_rotate(&list);
 	// 1234 1256 101010 4567
 	assert(1234 == list_get(&list, 0));
 	// 1256 101010 4567
 	assert(1234 == list_pop_one(&list));
 	assert(1256 == list_get(&list, 0));
 	assert(4567 == list_get(&list, -1));
-	list_reverse_rotate(&list);
+	list_rotate(&list);
 	// 101010 4567 1256
 	assert(101010 == list_get(&list, 0));
 	assert(101010 == list_get(&list, -3));
@@ -123,17 +123,17 @@ static void rotate_reverse(void)
 	list_push_one(&list, 101010);
 	list_push_one(&list, 1256);
 	// 1256 101010 4567 1234
-	list_rotate(&list);
+	list_reverse_rotate(&list);
 	// 1234 1256 101010 4567
 	assert(1234 == list_get(&list, 0));
 	assert(1234 == list_get(&list, 4));
 	assert(1234 == list_get(&list, -4));
-	list_rotate(&list);
+	list_reverse_rotate(&list);
 	// 4567 1234 1256 101010
 	assert(4567 == list_get(&list, 0));
 	assert(4567 == list_get(&list, 4));
 	assert(4567 == list_get(&list, -4));
-	list_rotate(&list);
+	list_reverse_rotate(&list);
 	// 101010 4567 1234 1256
 	assert(4567 == list_get(&list, 1));
 	assert(1256 == list_get(&list, -1));
@@ -156,22 +156,22 @@ static void push_rotate_pop(void)
 	list_push_one(&list, 4567);
 	// 4567 1234
 	assert(list_get(&list, 0) == 4567);
-	list_rotate(&list);
+	list_reverse_rotate(&list);
 	// 1234 4567
 	assert(list_get(&list, 0) == 1234);
-	list_rotate(&list);
+	list_reverse_rotate(&list);
 	// 4567 1234
 	assert(list_get(&list, 0) == 4567);
 	list_push_one(&list, 133221);
 	// 133221 4567 1234
 	assert(list_get(&list, 0) == 133221);
-	list_reverse_rotate(&list);
+	list_rotate(&list);
 	// 4567 1234 133221
 	assert(list_get(&list, 0) == 4567);
 	list_push_one(&list, 333123);
 	// 333123 4567 1234 133221
 	assert(list_get(&list, -1) == 133221);
-	list_rotate(&list);
+	list_reverse_rotate(&list);
 	// 133221 333123 4567 1234
 	assert(list_get(&list, 1) == 333123);
 	assert(list_pop_one(&list) == 133221);
@@ -183,7 +183,7 @@ static void push_rotate_pop(void)
 	list_push_one(&list, 5120);
 	// 5120 1234
 	assert(list_get(&list, -3) == 1234);
-	list_rotate(&list);
+	list_reverse_rotate(&list);
 	// 1234 5120
 	list_push_one(&list, 666);
 	// 666 1234 5120
@@ -209,7 +209,7 @@ static void clone(void)
 	for (int i = 0; i < 5; i++)
 		assert(list_get(&li2, i) != -5);
 	for (int i = 0; i < 10; i++)
-		list_rotate(&li1);
+		list_reverse_rotate(&li1);
 	for (int i = 99; i >= 0; i--)
 	{
 		int a = list_pop_one(&li1);
@@ -239,7 +239,7 @@ static void is_sorted(void)
 	{
 		assert(list_is_sorted(&li1, kDescending));
 		assert(!list_is_sorted(&li1, kAscending));
-		list_reverse_rotate(&li1);
+		list_rotate(&li1);
 	}
 	list_free(&li1);
 	list_init(&li1, 0);
@@ -253,7 +253,7 @@ static void is_sorted(void)
 	{
 		assert(!list_is_sorted(&li1, kDescending));
 		assert(list_is_sorted(&li1, kAscending));
-		list_rotate(&li1);
+		list_reverse_rotate(&li1);
 	}
 }
 
@@ -301,7 +301,7 @@ static void test_list_anchor(void)
 	list_push_and_print(&li1, &li2, B_TO_A);
 	assert(list_get(&li1, 0) == 5);
 	for (int i = 0; i < 1234; i++)
-		list_rotate(&li1);
+		list_reverse_rotate(&li1);
 	assert(list_get(&li1, 0) == 2);
 	list_push_and_print(&li1, &li2, B_TO_A);
 	assert(list_get(&li1, 0) == 7);

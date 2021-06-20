@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 14:02:28 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 05:40:12 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 06:24:09 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,20 @@ typedef struct	s_instruction
 
 /*
 **  ===========================================
-**      srcs/checker/reader.c
+**      srcs/checker/action.c
 **  ===========================================
 */
 
+t_instruction	parse_instruction(const char *input);
 void			do_action(t_list *a, t_list *b, t_instruction ins);
 t_bool			action_from_stdin(t_list *list_a, t_list *list_b);
+
+/*
+**  ===========================================
+**      srcs/checker/check.c
+**  ===========================================
+*/
+
+void			check_is_sorted(t_list *a, t_list *b, int init_element_count);
 
 #endif

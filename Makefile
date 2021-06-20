@@ -44,7 +44,8 @@ PUSH_SWAP_OBJ = $(PUSH_SWAP_SRC:.c=.o)
 CHECKER_DIR = ./srcs/checker/
 CHECKER = \
 	main \
-	reader
+	action \
+	check
 CHECKER_SRC = $(addprefix $(CHECKER_DIR), $(addsuffix .c, $(CHECKER)))
 CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
 

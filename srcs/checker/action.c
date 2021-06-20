@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reader.c                                           :+:      :+:    :+:   */
+/*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 03:25:13 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 06:15:18 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 06:22:57 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "get_next_line.h"
 #include <unistd.h>
 
-static int				determine_target(const char *input)
+static int			determine_target(const char *input)
 {
-	int					ret;
+	int				ret;
 
 	ret = 0;
 	if (!ft_strcmp(input, "rr") || !ft_strcmp(input, "ra") ||
@@ -32,9 +32,9 @@ static int				determine_target(const char *input)
 	return (ret);
 }
 
-static t_instruction	parse_instruction(const char *input)
+t_instruction		parse_instruction(const char *input)
 {
-	t_instruction		ret;
+	t_instruction	ret;
 
 	ret.target = determine_target(input);
 	if (!ft_strcmp(input, "rr") || 
@@ -55,7 +55,7 @@ static t_instruction	parse_instruction(const char *input)
 	return (ret);
 }
 
-void					do_action(t_list *a, t_list *b, t_instruction ins)
+void				do_action(t_list *a, t_list *b, t_instruction ins)
 {
 	if (ins.type == kRotate && (ins.target & kStackA))
 		list_rotate(a);
@@ -75,11 +75,11 @@ void					do_action(t_list *a, t_list *b, t_instruction ins)
 		list_push(a, b, A_TO_B);
 }
 
-t_bool					action_from_stdin(t_list *list_a, t_list *list_b)
+t_bool				action_from_stdin(t_list *list_a, t_list *list_b)
 {
-	char				*line;
-	int					status;
-	t_instruction		ins;
+	char			*line;
+	int				status;
+	t_instruction	ins;
 
 	status = get_next_line(STDIN_FILENO, &line);
 	if (status == -1)

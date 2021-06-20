@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 02:02:47 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 00:05:14 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 06:31:26 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ void		apply_distance_to_list(t_list *list, int distance)
 	{
 		if (distance > 0)
 		{
-			list_reverse_rotate(list);
+			list_rotate(list);
 			distance--;
 		}
 		if (distance < 0)
 		{
-			list_rotate(list);
+			list_reverse_rotate(list);
 			distance++;
 		}
 	}
