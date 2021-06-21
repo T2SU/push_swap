@@ -6,13 +6,13 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 04:18:19 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 09:12:35 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 09:46:23 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-static int	search_unsorted_circular(t_list *list)
+static int		search_unsorted_circular(t_list *list)
 {
 	int			num;
 

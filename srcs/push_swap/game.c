@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:47:15 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 08:46:53 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 09:44:03 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static void	case_tiny(t_list *list_a, t_list *list_b)
 			print_instructions_by_route(route);
 			apply_distance_to_list(list_a, route.distance_a);
 			list_push_and_print(list_a, list_b, A_TO_B);
-			continue ;
 		}
 	}
 	if (!list_is_sorted(list_a, kAscending))

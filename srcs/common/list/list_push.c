@@ -6,12 +6,29 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:56:26 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 06:02:58 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 09:45:57 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 #include <stdlib.h>
+
+/*
+**           +---+---+---+---+---+---+
+** Buffer:   | 1 | 3 | 5 | 7 | 9 | 0 |
+**           +---+---+---+---+---+---+
+** Index:      0   1   2   3   4   5
+**
+**         Need Size:   8
+**
+**     ----->
+**         Allocate and Copy!
+**
+**           +---+---+---+---+---+---+---+---+
+** Buffer:   | 1 | 3 | 5 | 7 | 9 | 0 |   |   |
+**           +---+---+---+---+---+---+---+---+
+** Index:      0   1   2   3   4   5   6   7
+*/
 
 static t_bool	ensure_list_size(t_list *list, int size)
 {
@@ -33,6 +50,43 @@ static t_bool	ensure_list_size(t_list *list, int size)
 	list->capacity++;
 	return (TRUE);
 }
+
+/*
+**           +---+---+---+---+---+---+
+** Buffer:   | 1 | 3 | 5 | 7 | 9 | 0 |
+**           +---+---+---+---+---+---+
+** Index:      0   1   2   3   4   5
+**
+**         Push  2
+**
+**     ----->
+**      1. Ensure size to 7. this case, buffer is too small to push one.
+**         so we need to expand list's size for pushing new one.
+**
+**           +---+---+---+---+---+---+---+
+** Buffer:   | 1 | 3 | 5 | 7 | 9 | 0 |   |
+**           +---+---+---+---+---+---+---+
+** Index:      0   1   2   3   4   5   6
+**
+**                   ----------
+**
+**      2. New number should be placed in top of list.
+**         therefore we will memmove elements at index 1 to 6.
+**
+**           +---+---+---+---+---+---+---+
+** Buffer:   | 1 | 1 | 3 | 5 | 7 | 9 | 0 |
+**           +---+---+---+---+---+---+---+
+** Index:      0   1   2   3   4   5   6
+**
+**                   ----------
+**
+**      2. Set value of the first index to 2, the new number.
+**
+**           +---+---+---+---+---+---+---+
+** Buffer:   | 2 | 1 | 3 | 5 | 7 | 9 | 0 |
+**           +---+---+---+---+---+---+---+
+** Index:      0   1   2   3   4   5   6
+*/
 
 t_bool			list_push_one(t_list *list, int value)
 {
