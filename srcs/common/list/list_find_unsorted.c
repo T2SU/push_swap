@@ -6,26 +6,23 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 04:18:19 by smun              #+#    #+#             */
-/*   Updated: 2021/06/19 01:40:53 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/21 09:12:35 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-static t_bool	search_unsorted_circular(t_list *list, int *pvalue)
+static int	search_unsorted_circular(t_list *list)
 {
 	int			num;
 
 	num = list_get(list, list->length - 1);
 	if (num > list_get(list, list->length))
-	{
-		*pvalue = list->length - 1;
-		return (TRUE);
-	}
-	return (FALSE);
+		return (list->length - 1);
+	return (-1);
 }
 
-t_bool			list_find_unsorted_biggest(t_list *list, int *pvalue)
+static int		find_unsorted_biggest_index(t_list *list)
 {
 	int			i;
 	int			num;
@@ -48,7 +45,19 @@ t_bool			list_find_unsorted_biggest(t_list *list, int *pvalue)
 		}
 		i++;
 	}
-	if ((*pvalue = biggest_index) != -1)
-		return (TRUE);
-	return (search_unsorted_circular(list, pvalue));
+	if (biggest_index != -1)
+		return (biggest_index);
+	return (search_unsorted_circular(list));
+}
+
+t_bool			list_find_unsorted_biggest(t_list *list, int *pvalue)
+{
+	const int	unsorted_index = find_unsorted_biggest_index(list);
+	int			num;
+
+	if (unsorted_index == -1)
+		return (FALSE);
+	num = list_get(list, unsorted_index);
+	*pvalue = list_get_fastest_distance(list, num);
+	return (TRUE);
 }
