@@ -6,11 +6,19 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:47:15 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 09:44:03 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/27 14:51:48 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+** Sort cases in little elements.
+**  1. Send unsorted numbers to Stack B order by descending.
+**  2. Repeat until remaining elements at least 3, in Stack A.
+**  3. If Stack A is unsorted, do swap action.
+**  4. Send Stack B Numbers to Stack A to proper index.
+*/
 
 static void	case_tiny(t_list *list_a, t_list *list_b)
 {
@@ -38,6 +46,13 @@ static void	case_tiny(t_list *list_a, t_list *list_b)
 	}
 	list_rotate_order_by(list_a, NULL, kAscending);
 }
+
+/*
+** Sort cases in large elements.
+** Applicates of A* algorithm, the solution to find fastest route.
+** Search each times for the best solution for sorting Stack B by
+** 'pb' as descending.
+*/
 
 static void	case_huge(t_list *a, t_list *b)
 {
