@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 08:47:29 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/28 13:29:00 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,5 +201,6 @@ size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlen(const char *s);
 ssize_t			ft_indexof(const char *s, int c, size_t len);
 int				ft_strcmp(const char *s1, const char *s2);
+char			**ft_split(const char *s, char c);
 
 #endif

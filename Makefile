@@ -28,6 +28,7 @@ COMMON = \
 	libft/ft_bzero \
 	libft/ft_indexof \
 	libft/ft_strcmp \
+	libft/ft_split \
 	gnl/get_next_line \
 	parser
 COMMON_SRC = $(addprefix $(COMMON_DIR), $(addsuffix .c, $(COMMON)))
