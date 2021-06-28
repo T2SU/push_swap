@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 COMMON_DIR = ./srcs/common/
 COMMON = \
@@ -73,4 +73,4 @@ push_swap : common $(PUSH_SWAP_OBJ)
 checker : common $(CHECKER_OBJ)
 	$(CC) $(CFLAGS) -o $@ $(COMMON_OBJ) $(CHECKER_OBJ)
 
-.PHONY: all clean fclean re bonus norme common push_swap checker
+.PHONY: all clean fclean re common push_swap checker
