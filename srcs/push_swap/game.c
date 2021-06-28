@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 23:47:15 by smun              #+#    #+#             */
-/*   Updated: 2021/06/27 14:51:48 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/28 15:03:06 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void		do_game(t_list *list_a, t_list *list_b, int argc, char *argv[])
 	parse_into_list(list_a, argc, argv);
 	if (!is_all_distinct(list_a))
 		raise_error("there are duplicates.");
-	if (argc - 1 > 5)
+	if (list_a->length > 5)
 		case_huge(list_a, list_b);
 	else
 		case_tiny(list_a, list_b);
