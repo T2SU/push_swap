@@ -6,13 +6,13 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 14:11:38 by smun              #+#    #+#             */
-/*   Updated: 2021/06/29 14:11:44 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/29 17:40:03 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
 
-void		list_set_real_anchor(t_list *list)
+void		list_purge(t_list *list)
 {
 	if (list->anchor < 0)
 	{
