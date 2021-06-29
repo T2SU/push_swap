@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/29 19:09:51 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/30 08:33:30 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int				list_get_fastest_distance(t_list *list, int value);
 */
 
 int				list_get_real_index(t_list *list, int index);
-void			list_purge(t_list *list);
+void			list_tidy_up_anchor(t_list *list);
 int				list_get(t_list *list, int index);
 void			list_set(t_list *list, int index, int value);
 int				list_get_highest_number(t_list *list, int basis);

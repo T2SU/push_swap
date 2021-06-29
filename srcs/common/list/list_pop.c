@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:56:44 by smun              #+#    #+#             */
-/*   Updated: 2021/06/29 17:40:02 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/30 08:33:30 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int					list_pop_one(t_list *list)
 	if (move_size > 0)
 		ft_memmove(&ptr[idx], &ptr[idx + 1], move_size);
 	list->length--;
-	list_purge(list);
+	list_tidy_up_anchor(list);
 	return (value);
 }
