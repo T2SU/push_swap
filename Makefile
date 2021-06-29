@@ -11,6 +11,7 @@ COMMON = \
 	list/list_sorted \
 	list/list_find_unsorted \
 	list/list_swap \
+	list/list_anchor \
 	list/list \
 	route/route \
 	route/route_apply \
