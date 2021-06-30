@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/30 10:25:25 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/30 12:45:09 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ enum			e_order
 	kDescending
 };
 
-enum			e_target
+enum			e_place
 {
 	kFrom,
 	kTo,
