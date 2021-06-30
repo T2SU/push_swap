@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/30 08:33:30 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/30 10:25:25 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ enum			e_order
 {
 	kAscending,
 	kDescending
+};
+
+enum			e_target
+{
+	kFrom,
+	kTo,
+	kTargetNum
 };
 
 typedef int		t_bool;
