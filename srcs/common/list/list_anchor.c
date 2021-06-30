@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_clone.c                                       :+:      :+:    :+:   */
+/*   list_anchor.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 02:06:59 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 08:44:05 by smun             ###   ########.fr       */
+/*   Created: 2021/06/29 14:11:38 by smun              #+#    #+#             */
+/*   Updated: 2021/06/30 09:13:40 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "common.h"
-#include <stdlib.h>
 
-t_bool				list_clone(t_list *from, t_list *to)
+void		list_tidy_up_anchor(t_list *list)
 {
-	const size_t	clone_size = from->capacity * sizeof(int);
-
-	list_free(to);
-	to->values = malloc(clone_size);
-	if (!to->values)
-		return (FALSE);
-	ft_memcpy(to->values, from->values, clone_size);
-	to->anchor = from->anchor;
-	to->capacity = from->capacity;
-	to->length = from->length;
-	return (TRUE);
+	while (list->anchor < 0)
+	{
+		if (list->length > 0)
+			list->anchor += list->length;
+		else
+			list->anchor = 0;
+	}
+	if (list->anchor >= list->length)
+	{
+		if (list->length > 0)
+			list->anchor %= list->length;
+		else
+			list->anchor = 0;
+	}
 }

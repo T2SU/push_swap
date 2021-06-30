@@ -7,10 +7,10 @@ COMMON = \
 	list/list_pop \
 	list/list_push \
 	list/list_rotate \
-	list/list_clone \
 	list/list_sorted \
 	list/list_find_unsorted \
 	list/list_swap \
+	list/list_anchor \
 	list/list \
 	route/route \
 	route/route_apply \

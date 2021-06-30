@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/28 13:29:00 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/30 10:25:25 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ enum			e_order
 {
 	kAscending,
 	kDescending
+};
+
+enum			e_target
+{
+	kFrom,
+	kTo,
+	kTargetNum
 };
 
 typedef int		t_bool;
@@ -86,6 +93,7 @@ int				list_get_fastest_distance(t_list *list, int value);
 */
 
 int				list_get_real_index(t_list *list, int index);
+void			list_tidy_up_anchor(t_list *list);
 int				list_get(t_list *list, int index);
 void			list_set(t_list *list, int index, int value);
 int				list_get_highest_number(t_list *list, int basis);
@@ -122,14 +130,6 @@ void			list_rotate_order_by(t_list *list_a, t_list *list_b, int order);
 /*
 **  ===========================================
 **      srcs/common/list/list_clone.c
-**  ===========================================
-*/
-
-t_bool			list_clone(t_list *from, t_list *to);
-
-/*
-**  ===========================================
-**      srcs/common/list/list_sorted.c
 **  ===========================================
 */
 

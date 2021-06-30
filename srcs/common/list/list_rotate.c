@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 01:55:34 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 08:47:57 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/30 08:33:30 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 void		list_reverse_rotate(t_list *list)
 {
 	list->anchor--;
+	list_tidy_up_anchor(list);
 }
 
 void		list_rotate(t_list *list)
 {
 	list->anchor++;
+	list_tidy_up_anchor(list);
 }
 
 void		list_rotate_order_by(t_list *list_a, t_list *list_b, int order)
