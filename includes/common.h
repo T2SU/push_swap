@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:55 by smun              #+#    #+#             */
-/*   Updated: 2021/06/30 12:45:09 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/30 13:26:53 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void			apply_distance_to_list(t_list *list, int distance);
 */
 
 t_bool			list_init(t_list *list, int length);
-void			list_print(t_list *list);
 void			list_free(t_list *list);
 int				list_get_fastest_distance(t_list *list, int value);
 

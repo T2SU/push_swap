@@ -6,7 +6,7 @@
 /*   By: smun <smun@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/09 16:26:25 by smun              #+#    #+#             */
-/*   Updated: 2021/06/21 07:16:04 by smun             ###   ########.fr       */
+/*   Updated: 2021/06/30 13:26:48 by smun             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,43 +30,6 @@ t_bool		list_init(t_list *list, int length)
 	list->anchor = 0;
 	list->length = 0;
 	return (TRUE);
-}
-
-/*
-**  Example:
-**    1. Anchor=7,  index=-3,   length=4
-**       - Anchor = 7 % 4 = 3
-**                => 3
-**       - index  = -3 % 4 = -3
-**                => -3 + 4 = 1
-**                => 1
-**       - Anchor + index = 3 + 1 = 4
-**                        => 4 % 4 = 0
-**                        => 0
-**       - RealIndex = 0
-*/
-
-void		list_print(t_list *list)
-{
-	int		i;
-	int		array_index;
-	char	*a;
-
-	i = 0;
-	while (i < list->length)
-	{
-		array_index = list_get_real_index(list, i + list->anchor);
-		if ((a = ft_itoa(list->values[array_index])))
-		{
-			print(a);
-			free(a);
-		}
-		else
-			print("?");
-		print(" ");
-		i++;
-	}
-	print("\n");
 }
 
 void		list_free(t_list *list)
